@@ -129,8 +129,8 @@ class NodeSubscribeCommand extends DrushCommands {
     ]
   ) {
     $extras = [
-      'new_secret' => 'f08d2e30a999b3d8c17260faa8ad7ca115fd6b9aea574611018d829ec97777ae',
-      'new_token' => '49e7608c2dbe525b8c453633deb1120ac9db2a1d419ebdf5f82ec8a59d587054',
+      'new_secret' => '',
+      'new_token' => '',
     ];
     $this->emailService->pageRemovedConfirm($to, $nid, $extras);
   }
@@ -159,8 +159,8 @@ class NodeSubscribeCommand extends DrushCommands {
     ]
   ) {
     $extras = [
-      'new_secret' => 'f08d2e30a999b3d8c17260faa8ad7ca115fd6b9aea574611018d829ec97777ae',
-      'new_token' => '49e7608c2dbe525b8c453633deb1120ac9db2a1d419ebdf5f82ec8a59d587054',
+      'new_secret' => '',
+      'new_token' => '',
     ];
     $this->emailService->newDevice($to, $nid, $extras);
   }
@@ -188,7 +188,7 @@ class NodeSubscribeCommand extends DrushCommands {
       'key' => '*',
     ]
   ) {
-    $secret = 'f08d2e30a999b3d8c17260faa8ad7ca115fd6b9aea574611018d829ec97777ae';
+    $secret = '';
     $verification_link = 'https://newthology.lndo.site?subscriber=' . $secret;
     $extras = [
       'verification_link' => $verification_link,
@@ -219,7 +219,7 @@ class NodeSubscribeCommand extends DrushCommands {
       'key' => '*',
     ]
   ) {
-    $secret = 'f08d2e30a999b3d8c17260faa8ad7ca115fd6b9aea574611018d829ec97777ae';
+    $secret = '';
     $verification_link = 'https://newthology.lndo.site?subscriber=' . $secret;
     $extras = [
       'verification_link' => $verification_link,
