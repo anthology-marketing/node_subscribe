@@ -1,0 +1,324 @@
+<?php
+
+/**
+ * @file
+ * Module module file.
+ *
+ * @todo Create a setting if people want to get notified on every single save.
+ */
+
+use Drupal\node\Entity\Node;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node_subscribe\Subscriber\Mailer;
+use Drupal\node_subscribe\Subscriber\Subscriber;
+
+/**
+ * Implements hook_mail().
+ */
+function node_subscribe_mail($key, &$message, $params) {
+  $options = [
+    'langcode' => $message['langcode'],
+  ];
+
+  switch ($key) {
+    case 'pending':
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('Anthology: @title', ['@title' => $params['title']], $options);
+      $message['body'][] = $params['message'];
+      break;
+
+    case 'subscribed':
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('Anthology: @title', ['@title' => $params['title']], $options);
+      $message['body'][] = $params['message'];
+      break;
+
+    case 'unsubscribed':
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('Anthology: @title', ['@title' => $params['title']], $options);
+      $message['body'][] = $params['message'];
+      break;
+
+    case 'new_user':
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('Anthology: @title', ['@title' => $params['title']], $options);
+      $message['body'][] = $params['message'];
+      break;
+
+    case 'new_device':
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('Anthology: @title', ['@title' => $params['title']], $options);
+      $message['body'][] = $params['message'];
+      break;
+
+    case 'page_updated':
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('Anthology: @title', ['@title' => $params['title']], $options);
+      $message['body'][] = $params['message'];
+      break;
+  }
+}
+
+/**
+ * {@inheritdoc}
+ */
+function node_subscribe_theme() {
+
+  // @todo add mail-template-2 (the twig template name) to configuration
+  return ([
+    'mail-template-2' => [
+      'variables' => [
+        'mail_key' => NULL,
+        'mail_to' => NULL,
+        'mail_title' => NULL,
+        'mail_body' => NULL,
+        'nid' => NULL,
+        'content_title' => NULL,
+        'content_body' => NULL,
+        'page_title' => NULL,
+        'page_url' => NULL,
+        'privacy_url' => NULL,
+        'show_manage_modal_button' => NULL,
+        'update_message' => NULL,
+        'actions' => [],
+      ],
+    ],
+    'analytics_template' => [
+      'variables' => [
+        'subscriber_total' => NULL,
+        'subscribed_page_total' => NULL,
+        'subscribedCountByProduct' => [],
+        'product_filter' => NULL,
+        'subscribedCountByPages' => [],
+        'allSubscribers' => [],
+        'subscribed_pages_by_product_total' => NULL,
+        'subscribed_pages_by_product_list' => [],
+        'subscribed_pages_by_product_name' => [],
+      ],
+    ],
+  ]);
+}
+
+/**
+ * {@inheritdoc}
+ */
+function node_subscribe_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Add optional checkbox to optionally send email to subscribers.
+  $form['send_node_subscribe_emails'] = [
+    '#type' => 'checkbox',
+    '#title' => t("Notify users who are following this page."),
+  // Make it the second last field.
+    '#weight' => 9999,
+  ];
+
+  $form['send_node_subscribe_emails_message'] = [
+    '#type' => 'textarea',
+    '#title' => t("Describe what has been updated on this page."),
+    '#description' => t("Add a message to the email notification to describe what has been changed on this page."),
+  // Make it the last field.
+    '#weight' => 10000,
+  ];
+
+  // Add custom submit callback function.
+  $form['#submit'][] = 'node_subscribe_form_submit';
+  $form['actions']['submit']['#submit'][] = "node_subscribe_form_submit";
+  $form['actions']['publish']['#submit'][] = "node_subscribe_form_submit";
+  $form[]['#attached']['library'][] = 'node_subscribe/notify_subscribers';
+}
+
+/**
+ * {@inheritdoc}
+ */
+function node_subscribe_form_submit($form, FormStateInterface $form_state) {
+  // @TODO: Change this as a event subscriber.
+  $connection = \Drupal::database();
+  $config = \Drupal::config('node_subscribe.settings');
+  $nid = $form_state->getBuildInfo()['callback_object']->getEntity()->toArray()['nid'][0]['value'];
+  $node = Node::load($nid);
+  $title = $node->getTitle();
+  $url = \Drupal::request()->getSchemeAndHttpHost() . "/node/" . $nid;
+  $update_message = $form_state->getValue('send_node_subscribe_emails_message');
+
+  if ($form_state->getValue('send_node_subscribe_emails') === 1) {
+    if ($nid) {
+      // Get an array of emails from subscribers.
+      $select = $connection->select('node_subscription_manager', 'manager');
+      $select->leftJoin('node_subscription', 'subscriptions',
+        'manager.smid = subscriptions.smid');
+      $select->addJoin('RIGHT OUTER', 'node_subscription_tokens', 'tokens',
+        'manager.smid = tokens.smid');
+      $select->addField('manager', 'email');
+      $select->distinct(TRUE);
+      $select->condition('manager.status', Subscriber::ACTIVE);
+      $select->condition('subscriptions.status', 'enabled');
+      $select->condition('subscriptions.nid', $nid);
+      $result = $select->execute()->fetchAll();
+
+      // If there are subscribers.
+      $sent_count = 0;
+
+      if ($result) {
+        $queueService = \Drupal::service('queue');
+        $queue = $queueService->get('node_subscribe_message_queue');
+        if ($config->get('development_mode') === 1 && $config->get('development_mode_email')) {
+          $queue->createQueue();
+          $queue->createItem([
+            'email' => $config->get('development_mode_email'),
+            'nid' => $nid,
+            'page_title' => $title,
+            'page_url' => $url,
+            'email_list' => $result,
+            'email_count' => count($result),
+            'update_message' => $update_message,
+          ]);
+          $sent_count = 1;
+        }
+        else {
+          foreach ($result as $value) {
+            $queue->createQueue();
+            $queue->createItem([
+              'email' => $value->email,
+              'nid' => $nid,
+              'page_title' => $title,
+              'page_url' => $url,
+              'email_list' => $result,
+              'email_count' => count($result),
+              'update_message' => $update_message,
+            ]);
+            $sent_count++;
+          }
+        }
+
+        if ($sent_count > 1) {
+          $sent_count_text = t("@sent_count emails were", ["@sent_count" => $sent_count]);
+        }
+        else {
+          $sent_count_text = t("@sent_count email was", ["@sent_count" => $sent_count]);
+        }
+        \Drupal::messenger()->addStatus('Subscription email sent successfully. ' . $sent_count_text . ' sent.');
+      }
+      else {
+        \Drupal::messenger()->addStatus('This page has no followers, no emails were sent.');
+      }
+    }
+    else {
+      \Drupal::messenger()->addError('Unable to get nid for sending subscription email.');
+    }
+  }
+}
+
+/**
+ * {@inheritdoc}
+ */
+function node_subscribe_cron() {
+
+  // print("Running cron and the current time is: " . date('G'));
+  // Delete subscribers who have requested deletion of their information through
+  // the follow page manage UI.
+  node_subscribe_delete_node_subscribers();
+
+  // Delete unconfirmed subscribers everyday at 2am.
+  if (date('G') == 2) {
+    node_subscribe_delete_pending_node_subscribers();
+  }
+}
+
+/**
+ * {@inheritdoc}
+ */
+function node_subscribe_delete_node_subscribers() {
+  // Delete subscribers who have requested to be deleted from the system.
+  $connection = \Drupal::database();
+  $txn = $connection->startTransaction();
+  try {
+    $step_1 = $connection->delete('node_subscription_manager')
+      ->condition('status', Subscriber::DELETE, '=')
+      ->execute();
+    if ($step_1) {
+      $step_2 = $connection->delete('node_subscription_tokens')
+        ->condition('verified', Subscriber::TOKEN_DELETE, '=')
+        ->execute();
+      if ($step_2) {
+        $step_3 = $connection->delete('node_subscription')
+          ->condition('status', Subscriber::PAGE_DISABLED, '=')
+          ->execute();
+        if ($step_3) {
+          \Drupal::logger('node subscribe hook cron')->notice('Executed cron delete all Node Subscribe users marked as status = delete and all its token and pages');
+        }
+        else {
+          \Drupal::logger('node subscribe hook cron')->notice("Executed cron delete node subscribers subscriptions step 3, nothing to deleted.");
+        }
+      }
+      else {
+        \Drupal::logger('node subscribe hook cron')->notice("Executed cron delete node subscribers tokens: step 2, nothing to deleted.");
+      }
+    }
+    else {
+      \Drupal::logger('node subscribe hook cron')->notice("Executed cron delete node subscribers: step 1, nothing to deleted.");
+    }
+
+  }
+  catch (Exception $e) {
+
+    $txn->rollBack();
+    \Drupal::logger('node_subscribe')->error($e->getMessage());
+  }
+}
+
+/**
+ * {@inheritdoc}
+ */
+function node_subscribe_delete_pending_node_subscribers() {
+  // Delete unconfirmed subscribers.
+  $connection = \Drupal::database();
+  $txn2 = $connection->startTransaction();
+
+  try {
+    $step_1 = $connection->delete('node_subscription_manager')
+      ->condition('status', Subscriber::PENDING, '=')
+      ->execute();
+    if ($step_1) {
+      $step_2 = $connection->delete('node_subscription_tokens')
+        ->condition('verified', Subscriber::TOKEN_UNVERIFIED, '=')
+        ->execute();
+      if ($step_2) {
+        $step_3 = $connection->delete('node_subscription')
+          ->condition('status', Subscriber::PAGE_PENDING, '=')
+          ->execute();
+        if ($step_3) {
+          \Drupal::logger('node subscribe hook cron')->notice('Executed cron delete all Node Subscribe users has status = pending and all its unverified tokens and pending pages');
+          return $txn2;
+        }
+        else {
+          \Drupal::logger('node subscribe hook cron')->notice("Executed cron deleting pending node subscribers subscriptions: step 3, nothing to deleted.");
+        }
+      }
+      else {
+        \Drupal::logger('node subscribe hook cron')->notice("Executed cron deleting pending node subscribers tokens: step 2, nothing to deleted.");
+      }
+    }
+    else {
+      \Drupal::logger('node subscribe hook cron')->notice("Executed cron deleting pending node subscribers: step 1, nothing to deleted.");
+    }
+
+  }
+  catch (Exception $e) {
+
+    $txn2->rollBack();
+    \Drupal::logger('node_subscribe')->error($e->getMessage());
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function node_subscribe_preprocess_page(array &$variables) {
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['#attached']['drupalSettings']['language'] = $language;
+}

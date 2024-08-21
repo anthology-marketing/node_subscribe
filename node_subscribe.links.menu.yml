@@ -1,0 +1,16 @@
+node_subscribe.settings:
+  title: 'Node Subscribe Settings'
+  description: 'Configure settings and user interface of the node subscription block'
+  route_name: node_subscribe.settings_form
+  parent: 'system.admin_config_services'
+node_subscribe.analytics:
+  title: 'Node Subscribe Analytics'
+  description: 'View analytics about node subscribers'
+  route_name: node_subscribe.analytics
+  parent: 'system.admin_config_services'
+node_subscribe.settings_form:
+  title: 'Mymodule Settings'
+  route_name: node_subscribe.settings_form
+  description: 'Configure Mymodule integration'
+  parent: system.admin_config_system
+  weight: 99

@@ -1,0 +1,176 @@
+<?php
+
+/**
+ * @file
+ * Module install file.
+ */
+
+use Drupal\Core\Language\LanguageInterface;
+
+/**
+ * Implements hook_schema().
+ */
+function node_subscribe_schema() {
+  $schema['node_subscription_manager'] = [
+    'description' => 'Stores subscribers.',
+    'fields' => [
+      'smid' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique subscriber ID',
+      ],
+      'email' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Subscriber email',
+      ],
+      'verified' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => '0',
+        'description' => 'Has a verified token?',
+      ],
+      'status' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => '0',
+        'description' => 'Enabled or disabled?',
+      ],
+      'changed' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => '0',
+        'description' => 'Timestamp of when the subscriber was updated',
+      ],
+      'created' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => '0',
+        'description' => 'Timestamp of when the subscriber was first created',
+      ],
+      'langcode' => [
+        'description' => 'The language of this request.',
+        'type' => 'varchar_ascii',
+        'length' => 12,
+        'not null' => TRUE,
+        'default' => LanguageInterface::LANGCODE_NOT_SPECIFIED,
+      ],
+    ],
+    'primary key' => ['smid'],
+  ];
+  $schema['node_subscription'] = [
+    'description' => 'Stores each node subscription for each subscriber',
+    'fields' => [
+      'sid' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique subscription to a node',
+      ],
+      'smid' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'Foreign Key: Subscription Manager ID',
+      ],
+      'nid' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'Node ID subscribed to',
+      ],
+      'tid' => [
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'created by this token id',
+      ],
+      'status' => [
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '0',
+        'description' => 'Status of the subscription',
+      ],
+      'changed' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => '0',
+        'description' => 'Timestamp of when the subscription was updated',
+      ],
+      'created' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => '0',
+        'description' => 'Timestamp of when the subscription was created',
+      ],
+    ],
+    'foreign keys' => [
+      'smid' => [
+        'table' => 'node_subscription_manager',
+        'columns' => ['smid', 'smid'],
+      ],
+      'nid' => [
+        'table' => 'node',
+        'columns' => ['nid', 'nid'],
+      ],
+    ],
+    'primary key' => ['sid'],
+  ];
+  $schema['node_subscription_tokens'] = [
+    'description' => 'Stores tokens owned by each subscriber in subscription manager.',
+    'fields' => [
+      'token_id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique Token ID',
+      ],
+      'smid' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'Foreign Key: Subscription Manager ID',
+      ],
+      'verified' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => '0',
+        'description' => 'Is the token verified?',
+      ],
+      'token' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Subscriber token',
+      ],
+      'secret' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Subscriber verification secret',
+      ],
+      'changed' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => '0',
+        'description' => 'Timestamp of when the token was updated',
+      ],
+      'created' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => '0',
+        'description' => 'Timestamp of when the token was first created',
+      ],
+    ],
+    'foreign keys' => [
+      'smid' => [
+        'table' => 'node_subscription_manager',
+        'columns' => ['smid', 'smid'],
+      ],
+    ],
+    'primary key' => ['token_id'],
+  ];
+
+  return $schema;
+}

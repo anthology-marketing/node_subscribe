@@ -1,0 +1,28 @@
+node_subscribe.tab_analytics:
+  route_name: node_subscribe.analytics
+  title: Analytics
+  base_route: node_subscribe.analytics
+  weight: 10
+
+node_subscribe.tab_manage_subscriber:
+  route_name: node_subscribe.manage_subscribers_form
+  title: Manage Subscribers
+  base_route: node_subscribe.analytics
+  weight: 20
+
+node_subscribe.tab_manage_subscriber_delete:
+  route_name: node_subscribe.manage_subscribers_delete_form
+  title: Delete Requests
+  base_route: node_subscribe.analytics
+  weight: 21
+
+node_subscribe.tab_settings:
+  route_name: node_subscribe.settings_form
+  title: Settings
+  base_route: node_subscribe.analytics
+  weight: 30
+
+# node_subscribe.settings_form_tab:
+#   base_route: node_subscribe.settings_form
+#   title: 'node_subscribe Settings'
+#   route_name: node_subscribe.settings_form

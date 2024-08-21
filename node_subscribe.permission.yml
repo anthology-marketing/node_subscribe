@@ -1,0 +1,3 @@
+manage node_subscribe settings:
+  title: 'Manage node_subscribe settings'
+  description: 'Allows users to configure node_subscribe'

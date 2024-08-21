@@ -1,0 +1,185 @@
+langcode: en
+recaptcha_required: 0
+recaptcha_key: ''
+recaptcha_secret: ''
+tokens_expire_after: '0'
+email_settings:
+  send_new_user_email: 0
+  send_new_device_email: 0
+  send_page_added_email: 1
+  send_page_removed_email: 1
+  send_page_remove_confirmation_email: 0
+theme:
+  icon_link: /themes/custom/blackboard/img/icon-document-star.svg
+development_mode: 0
+development_mode_email: ''
+token_expire_message:
+  title: 'Followed pages session expired'
+  body: 'Please login again using by entering your email and verifying your email.'
+  help_text: ''
+  ok_button_text: OK
+subscribe_bar_text:
+  subscription_prompt_title: 'Follow this page!'
+  subscribe_prompt: 'We''ll send you an email each time we make an important change.'
+  subscribed_now_title: 'You''re now following this page'
+  subscribed_title: 'You''re following this page.'
+  unsubscribed_now_title: 'You''ve unfollowed this page'
+  subscribed_message: 'We''ll send you an email each time we make an important change.'
+  pending_message: 'Check your email to confirm.'
+  unsubscribe_message: 'We''ll no longer send you emails when we make changes.'
+  email_box_placeholder: 'Type your email address'
+subscribe_button_text:
+  subscribe: Follow
+  cancel_subscription: Unfollow
+  subscription_pending: Pending
+  manage_subscription: 'Manage Your Pages'
+account_manage_button_label_text:
+  suspend: 'Pause all email notifications.'
+  unsuspend: 'Your notifications are paused.'
+  delete: 'Remove email and all followed pages.'
+account_manage_button_text:
+  suspend: Suspend
+  unsuspend: Un-suspend
+  delete: Delete
+subscribe_modal_text:
+  subscribed:
+    title: 'You’re following this page'
+    body: "Do you want to remember this device?<br>\r\n<p style=\"font-size: 0.88em; font-weight: light;\">If you select <em>Yes</em>, we’ll set a browser cookie to remember this device and send you an email to confirm your device. Select <em>No</em> if you’re on a public computer.</p>"
+    help_text: ''
+    save_button_text: 'Yes'
+    do_not_save_button_text: 'No'
+  confirm:
+    title: 'Confirm your device'
+    body: 'Please confirm your email address in the email we sent you.'
+    help_text: ''
+    button: OK
+  pending:
+    title: 'Request to follow is pending'
+    body: 'Please confirm your email address in the email we sent you.'
+    help_text: ''
+    button: OK
+  invalid_email:
+    title: 'Invalid email address'
+    body: 'You must provide a valid email address.'
+    help_text: 'Example: your@email.com'
+    button: OK
+  confirm_success:
+    title: Success!
+    body: 'You’ve confirmed your email address or device.'
+    help_text: ''
+    button: OK
+  confirm_failed:
+    title: 'Confirmation failed'
+    body: 'Your confirmation code is invalid. Please select <em>Confirm</em> in the email we sent you.'
+    help_text: ''
+    button: OK
+  confirm_failed_delete:
+    title: 'Confirmation failed'
+    body: 'We are unable to verify your email because you''ve previously requested your email to be deleted. Please try another email.'
+    help_text: ''
+    button: OK
+  subscribe_failed:
+    title: Oops!
+    body: 'We''re unable to add this page to your followed pages right now. Please try again later.'
+    help_text: ''
+    button: OK
+  captcha_failed:
+    title: Oops!
+    body: 'We''re unable to complete this request. Please try again later.'
+    help_text: 'Code: 001'
+    button: OK
+  new_device:
+    title: 'You’re following this page'
+    body: 'Is this a new device to add to your existing followed pages subscription? We’ve sent you an email. To verify the device, select <em>Confirm</em> in the email. <br/><br/> Do you want to remember this device?'
+    help_text: 'Please select <em>No</em> if you are using a public computer.'
+    button: OK
+    save_button_text: 'Yes'
+    do_not_save_button_text: 'No'
+  never_verified:
+    title: 'Confirm your email address'
+    body: 'Please confirm your email address in the email we sent you.'
+    help_text: ''
+    button: OK
+  invalid_token:
+    title: 'Verify this device'
+    body: 'Please verify this device by entering your email again.'
+    help_text: ''
+    button: OK
+  unsubscribe_failed:
+    title: Oops!
+    body: 'We''re unable to complete this request. Please try again later.'
+    help_text: ''
+    button: OK
+  email_unsubscribe_success:
+    title: 'You''ve unfollowed this page'
+    body: 'We''ll no longer send you emails when we make changes.'
+    help_text: ''
+    button: OK
+  email_unsubscribe_failed:
+    title: Oops!
+    body: 'We''re unable to complete this request. If you copied and pasted the link, try clicking the link in the email instead.'
+    help_text: ''
+    button: OK
+  email_unsubscribe_from_unverified_device:
+    title: 'Confirm unfollowing this page'
+    body: 'We don''t recognize this device. To remove this page from your followed pages, please select <em>Confirm</em> in the email we sent you.'
+    help_text: ''
+    button: OK
+  manage_modal:
+    title: 'Manage your pages'
+    body: 'You''re not following any pages yet.'
+    help_text: 'To add a page, go to the page and select <em>Follow</em>.'
+    unsubscribe_button: Unfollow
+    button: OK
+  email_send_failed:
+    title: Oops!
+    body: 'We are unable to complete this request, please try again later.'
+    help_text: ''
+    button: OK
+account_manage_modal_text:
+  account_delete_message:
+    title: 'Are you sure?'
+    body: 'Are you sure you want to delete your account and it''s followed pages?'
+    help_text: ''
+    confirm_button: 'Yes'
+    cancel_button: 'No'
+  account_delete_requested:
+    title: 'Your request has been submitted!'
+    body: 'You will no longer get emails when pages you subscribed to updates, all your device tokens are invlalidated and your email and related subscriptions will be removed within 24 hours.'
+  account_delete_failed:
+    title: 'Oops! Your request has failed!'
+    body: 'Please contact us about removing your email. Thank you!'
+  account_suspend_requested:
+    title: 'Your notifications has been suspended'
+    body: 'You will no longer get emails when pages you subscribed to updates until you un-suspend your notifications.'
+  account_suspend_failed:
+    title: 'Oops! Your request has failed!'
+    body: 'Please contact us about suspending your notifications.'
+  account_suspend_removed:
+    title: 'Your noitifications has been reactivated!'
+    body: 'You will start to get emails when for pages you are subscribed to updates.'
+subscribe_email_template:
+  confirmation_email:
+    title: 'Confirm your email subscription'
+    body: 'We''ll send you an email each time we make an important change to this page on help.anthology.com:'
+    button: 'Confirm Email'
+  new_device_email:
+    title: 'New device'
+    body: 'Is this a new device to add to your existing followed pages subscription? Please confirm this device.'
+    button: 'Confirm Device'
+  page_added_email:
+    title: 'You''re following a new page'
+    body: 'We''ll send you an email each time we make an important change to this page on help.anthology.com:'
+    button: 'Unfollow Page'
+  page_removed_email:
+    title: 'You''ve unfollowed a page'
+    body: 'We''ll no longer send you emails when we make changes to this page on help.anthology.com:'
+    button: 'Follow Again'
+  page_removed_confirmation_email:
+    title: 'You''ve unfollowed a page'
+    body: 'You''ve unfollowed a page from an unverified device. Please confirm that you want to unfollow this page:'
+    button: 'Confirm Unfollow'
+  page_updated_email:
+    title: 'We''ve changed a page you''re following'
+    body: 'We''ve changed a page that you follow on help.anthology.com:'
+    button: 'Unfollow Page'

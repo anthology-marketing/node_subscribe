@@ -1,0 +1,116 @@
+default:
+  '#type': 'fieldset'
+  '#title': 'Default Settings'
+  website:
+    '#type': 'textfield'
+    '#title': 'Base path URL'
+    '#description': "This field will be used as prefix if we get a 'default' value for base path."
+    '#default_value': 'website'
+
+recaptcha:
+  '#type': 'fieldset'
+  '#title': 'Google Recaptcha Settings'
+  recaptcha_required:
+    '#type': 'checkbox'
+    '#title': 'RECAPTCHA Required'
+    '#description': 'Setup Google RECAPTCHA. If required is set, users will be asked to do the RECAPTCHA challenge on sign up.'
+    '#default_value': 'recaptcha_required'
+    '#disabled': false
+  recaptcha_key:
+    '#type': 'textfield'
+    '#title': 'Google RECAPTCHA site Key'
+    '#default_value': 'recaptcha_key'
+  recaptcha_secret:
+    '#type': 'textfield'
+    '#title': 'Google RECAPTCHA secret key'
+    '#default_value': 'recaptcha_secret'
+
+access_tokens:
+  '#type': 'fieldset'
+  '#title': 'Access Token Settings'
+  tokens_expire_after:
+    '#title': 'Access token expires _______ after creation'
+    '#type': 'select'
+    '#options':
+      '0': 'Never'
+      '60': '1 Minute'
+      '600': '10 Minute'
+      '86400': '1 Day'
+      '864000': '10 Days'
+      '2600640': '30 Days'
+      '15549999': '180 Days'
+      '31112640': '360 Days'
+    '#default_value': 'tokens_expire_after'
+    '#attributes':
+      'class': ['inline-form']
+  token_expire_message_title:
+    '#title': 'Token expired message title'
+    '#type': 'textfield'
+    '#default_value': 'token_expire_message.title'
+  token_expire_message_body:
+    '#title': 'body'
+    '#type': 'textarea'
+    '#default_value': 'token_expire_message.body'
+  token_expire_message_help_text:
+    '#title': 'help text'
+    '#type': 'textfield'
+    '#default_value': 'token_expire_message.help_text'
+  token_expire_message_ok_button_text:
+    '#title': 'OK button text'
+    '#type': 'textfield'
+    '#default_value': 'token_expire_message.ok_button_text'
+
+email_settings:
+  '#type': 'fieldset'
+  '#title': 'Email Settings'
+  send_new_user_email:
+    '#type': 'checkbox'
+    '#title': 'Send New User Email'
+    '#description': 'If checked, the system will send emails to new users to confirm their signup. (this is required)'
+    '#default_value': 'email_settings.send_new_user_email'
+    '#disabled': false
+  send_new_device_email:
+    '#type': 'checkbox'
+    '#title': 'Send New Device Email'
+    '#description': 'If checked, the system will send emails to users signing in on a new device to confirm their sign-in. (this is required)'
+    '#default_value': 'email_settings.send_new_device_email'
+    '#disabled': false
+  send_page_added_email:
+    '#type': 'checkbox'
+    '#title': 'Send Page Added Email'
+    '#description': 'If checked, the system will send emails when a user adds a page to their subscription.'
+    '#default_value': 'email_settings.send_page_added_email'
+    '#disabled': false
+  send_page_removed_email:
+    '#type': 'checkbox'
+    '#title': 'Send Page Removed Email'
+    '#description': 'If checked, the system will send emails when a user removes a page to their subscription.'
+    '#default_value': 'email_settings.send_page_removed_email'
+    '#disabled': false
+  send_page_remove_confirmation_email:
+    '#type': 'checkbox'
+    '#title': 'Send Page Remove Confirmation Email'
+    '#description': 'If checked, the system will send emails when a user clicks on a unsubscribe link in an email on an unverified (not signed in) device. (this is required)'
+    '#default_value': 'email_settings.send_page_remove_confirmation_email'
+    '#disabled': false
+
+subscribe_banner_icon:
+  '#type': 'fieldset'
+  '#title': 'Banner Icon'
+  icon_link:
+    '#type': 'textfield'
+    '#title': 'Icon Link'
+    '#description': 'Relative URL to an icon image'
+    '#default_value': 'theme.icon_link'
+
+development_mode:
+  '#type': 'checkbox'
+  '#title': 'Development Mode'
+  '#description': 'When enabled, some JavaScript console log will be logged to browser for debugging.'
+  '#default_value': 'development_mode'
+
+development_mode_email:
+  '#type': 'email'
+  '#title': 'Development Mode Email'
+  '#description': 'Set an email for sending page update emails to. Prevents sending email to everyone in the subscription list of the page.'
+  '#default_value': 'development_mode_email'

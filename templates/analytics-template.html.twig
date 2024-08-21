@@ -1,0 +1,105 @@
+<div class="subscription-analytics">
+
+    {% if not(product_filter) %}
+        <table>
+            <h2>Subscription Analytics</h2>
+            <thead>
+            <tr>
+                <th>Metrix</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>Subscriber Total:</td>
+                <td>{{ subscriber_total }}</td>
+            </tr>
+            <tr>
+                <td>Subscribed Page Total:</td>
+                <td>{{ subscribed_page_total }}</td>
+            </tr>
+        </table>
+        <br/>
+    {% endif %}
+
+    {% if not(product_filter) %}
+        <table>
+            <h2>Subscription Count By Product</h2>
+            <thead>
+            <tr>
+                <th>Product</th>
+                <th>Subscribed</th>
+                <th>Unsubscribed</th>
+                <th>Pending</th>
+            </tr>
+            </thead>
+            {% for product, value in subscribedCountByProduct %}
+                {% if not(product == 'Total') %}
+                    <tr>
+                        <td><a href="?product={{ product }}">{{ product }}</a></td>
+                        <td>{{ value.enabled }}</td>
+                        <td>{{ value.disabled }}</td>
+                        <td>{{ value.pending }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            {% if(subscribedCountByProduct.Total) %}
+                <tfoot>
+                <tr>
+                    <td><strong>Total:</strong></td>
+                    <td><strong>{{ subscribedCountByProduct.Total.enabled }}</strong></td>
+                    <td><strong>{{ subscribedCountByProduct.Total.disabled }}</strong></td>
+                    <td><strong>{{ subscribedCountByProduct.Total.pending }}</strong></td>
+                </tr>
+                </tfoot>
+            {% endif %}
+        </table>
+        <br/>
+    {% endif %}
+
+    {% if(product_filter) %}
+        <table>
+            {% if not product_filter %}
+                <h2>Subscription Count By Pages</h2>
+            {% else %}
+                <h2>Subscription Count By Pages Filtered by Product ({{ product_filter }})</h2>
+            {% endif %}
+            <thead>
+            <tr>
+                <th>Page Title</th>
+                <th>Product</th>
+                <th>Status</th>
+                <th>Subscribed</th>
+                <th>Unsubscribed</th>
+                <th>Pending</th>
+            </tr>
+            </thead>
+            {% for page in subscribedCountByPages.nodes %}
+                <tr>
+                    <td>{{ page.title }}</td>
+                    <td>{{ page.product }}</td>
+                    <td>{% if page.status == 1 %} Published {% else %} Unpublished {% endif %}</td>
+                    <td>{{ page.subscription_count }}</td>
+                    <td>{{ page.subscription_count_disabled }}</td>
+                    <td>{{ page.subscription_count_pending }}</td>
+                </tr>
+            {% endfor %}
+            {% if subscribedCountByPages.total %}
+                <tr>
+                    <td><strong>Total:</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td><strong>{{ subscribedCountByPages.total.enabled }}</strong></td>
+                    <td><strong>{{ subscribedCountByPages.total.disabled }}</strong></td>
+                    <td><strong>{{ subscribedCountByPages.total.pending }}</strong></td>
+                </tr>
+            {% endif %}
+        </table>
+        <br/>
+    {% endif %}
+
+    {% if not(product_filter) %}
+        <h2>All Subscribers By Device</h2>
+        {{ allSubscribers }}
+    {% endif %}
+
+</div>

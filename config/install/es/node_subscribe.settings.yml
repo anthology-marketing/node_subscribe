@@ -1,0 +1,126 @@
+langcode: es
+subscribe_bar_text:
+  subscription_prompt_title: '¡Sigue esta página!'
+  subscribe_prompt: 'Te enviaremos un email cada vez que realicemos un cambio importante.'
+  subscribed_now_title: 'Ahora estás siguiendo esta página'
+  subscribed_title: 'Estás siguiendo esta página.'
+  unsubscribed_now_title: 'Dejaste de seguir esta página'
+  subscribed_message: 'Te enviaremos un email cada vez que realicemos un cambio importante.'
+  pending_message: 'Revisa tu email para confirmar.'
+  unsubscribe_message: 'No te enviaremos mas correro cuando hagamos cambios.'
+  email_box_placeholder: 'Ingresa tu direccion de email'
+subscribe_button_text:
+  subscribe: Seguir
+  cancel_subscription: 'Dejar de Seguir'
+  subscription_pending: Pendiente
+  manage_subscription: 'Administra tus páginas'
+account_manage_button_label_text:
+  suspend: 'Pausa todas las notificaciones via email.'
+  unsuspend: 'Tus notificaciones estan pausadas.'
+  delete: 'Remover email y todos las páginas seguidas.'
+account_manage_button_text:
+  suspend: Suspendido
+  unsuspend: Activar
+  delete: Eliminar
+theme: {  }
+subscribe_modal_text:
+  subscribed:
+    title: 'Usted esta siguiendo esta página'
+    body: "¿Desea recordar este dispositivo?<br>\r\n<p style=\"font-size: 0.88em; font-weight: light;\">Si selecciona <em>Si</em>, nosotros asignaremos una cookie para recordar este dispositivo y enviarte un email para confirmar tu dispositivo. Seleccione <em>No</em> si usted esta en un computador publico.</p>"
+    save_button_text: Si
+  confirm:
+    title: 'Confirmar tu dispositivo'
+    body: 'Por favor confirma tu direccion de correo en el correo que te hemos enviado.'
+  pending:
+    title: 'Solicitud de seguir esta pendiente'
+    body: 'Por favor confirma tu direccion de correo en el correo que te hemos enviado.'
+  invalid_email:
+    title: 'Direccion de correo no valida'
+    body: 'Usted debe porveer una direccion de correo valido.'
+    help_text: 'Ejemplo: tu-nombre@correo.com'
+  confirm_success: {  }
+  confirm_failed:
+    title: 'Confirmacion fallida'
+    body: 'Tu codigo de confirmacion no es valido. Por favor selecciona <em>Confirmar</em> en el correo que te hemos enviado.'
+  confirm_failed_delete:
+    title: 'Confirmacion fallida'
+    body: 'Nosotros no hemos logrado verificar tu correo electronico por que tu previamente solicitaste eliminar tu correo. Por favor intenta con otro email.'
+  subscribe_failed:
+    body: 'Nosotros no hemos logrado agregar esta página a tu lista de páginas seguidas en este momento. Por favor intenta mas tarde.'
+  captcha_failed:
+    body: 'Nosotros no hemos logrado completar esta solicitud. Por favor intenta mas tarde.'
+  new_device:
+    title: 'Usted esta siguiendo esta página'
+    body: '¿Este es un nuevo dispositivo para agregar a su susbcripcion de páginas seguidas existente? Te hemos enviado un correo.Para verificar el dispositivo, seleccione <em>Confirmar</em> en el correo. <br/><br/> ¿Desea recordar el dispositivo?'
+    save_button_text: Si
+  never_verified:
+    title: 'Confirmar tu direccion de correo'
+    body: 'Por favor confirma tu direccion de correo en el correo que te hemos enviado.'
+  invalid_token:
+    title: 'Verificar este dispositivo'
+    body: 'Por favor verificar este dispositivo ingresando su email de nuevo.'
+  unsubscribe_failed:
+    body: 'Nosotros no hemos logrado completar esta solicitud. Por favor intenta mas tarde nuevamente.'
+  email_unsubscribe_success:
+    title: 'Tu has dejado de seguir esta página'
+    body: 'No te enviaremos nunca mas correos cuando hagamos cambios.'
+  email_unsubscribe_failed:
+    body: 'Nosotros no hemos logrado completar esta solicitud. Si copias y pegas este vinculo, intenta dando clic sobre el vinculo en el correo en cambio.'
+  email_unsubscribe_from_unverified_device:
+    title: 'Confirma dejar de seguir esta página'
+    body: 'Nosotros no reconocemos este dispositivo. Para remover esta página de tus páginas seguidas, por favor selecione <em>Confirmar</em> en el correo que te hemos enviado.'
+  manage_modal:
+    title: 'Administra tus páginas'
+    body: 'Tu no estas siguiendo ninguna página aun.'
+    help_text: 'Para agragar una página, ve a la página y selecciona <em>Seguir</em>.'
+    unsubscribe_button: 'Dejar de seguir'
+  email_send_failed:
+    body: 'Nosotros no hemos logrado completar esta solicitud, por favor intenta mas tarde nuevamente.'
+account_manage_modal_text:
+  account_delete_message:
+    title: '¿Estas seguro?'
+    body: '¿Esta seguro que deseas eliminar tu cuenta y sus páginas seguidas?'
+    confirm_button: Si
+  account_delete_requested:
+    title: 'Su solicitud ha sido enviada!'
+    body: 'Usted no recibira nuevamente correos cuando las páginas donde estas subscrito se actualicen, todos los tokens de dispositivos estan invalidados y su cuenta de correo y subscripciones relacionadas seran removidas en las proximas 24 houras.'
+  account_delete_failed:
+    title: "Oops! Tu solicitud ha fallado!'"
+    body: 'Por favor contactanos para remover tu cuenta de email. ¡Gracias!'
+  account_suspend_requested:
+    title: 'Tus notificaciones han sido suspendidas'
+    body: 'Usted no recibira nuevamente correos cuando las páginas donde estas subscrito se actualicen hasta que usted reactive sus notificaciones.'
+  account_suspend_failed:
+    title: 'Oops! Tu solicitud ha fallado!'
+    body: 'Por favor contactanos para suspender tus notificaciones.'
+  account_suspend_removed:
+    title: 'Tus notificaciones han sido reactivadas!'
+    body: 'Usted empezara a recibir correos para las páginas donde estas subscrito a actualizaciones.'
+subscribe_email_template:
+  confirmation_email:
+    title: 'Confima tu correo de subscripcion'
+    body: 'Te enviaremos un email cada vez que realicemos un cambio importante a esta página en nuestro sitio anthology.com:'
+    button: 'Confirmar cuenta de correo'
+  new_device_email:
+    title: 'Nuevo dispositivo'
+    body: '¿Es este un nuevo dispositivo para agregar a su subscripcion existente de páginas seguidas? Por favor confirme este dispositivo.'
+    button: 'Confirmar dispositivo'
+  page_added_email:
+    title: 'Usted esta siguiendo una nueva página'
+    body: 'Te enviaremos un email cada vez que realicemos un cambio importante a esta página en anthology.com:'
+    button: 'Dejar de seguir página'
+  page_removed_email:
+    title: 'Usted ha dejado de seguir una página'
+    body: 'Nosotros no te enviaremos mas correos cuando hagamos cambios a esta página en anthology.com:'
+    button: 'Seguir de nuevo'
+  page_removed_confirmation_email:
+    title: 'Tu has dejado de seguir una página'
+    body: 'Tu dejaras de seguir una página desde un dispositivo no verificado. Por favor cofirmar que deseas dejar de seguir esta página:'
+    button: 'Confirmar dejar de seguir'
+  page_updated_email:
+    title: 'Hemos cambiado una página que estas siguiendo'
+    body: 'Hemos cambiado una página que estas siguiendo en anthology.com:'
+    button: 'Dejar de seguir página'
+token_expire_message:
+  title: 'Sesion expirada en paginas seguidas'
+  body: 'Por favor ingrese de nuevo ingresando su email y verificandolo.'

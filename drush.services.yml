@@ -1,0 +1,9 @@
+services:
+  node_subscribe.command:
+    arguments: [
+      '@current_user',
+      '@node_subscribe.email.service'
+    ]
+    class: Drupal\node_subscribe\Command\NodeSubscribeCommand
+    tags:
+      - { name: drush.command }

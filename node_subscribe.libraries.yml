@@ -1,0 +1,19 @@
+node_subscribe.form:
+  version: 1.0
+  js:
+    js/node-subscribe-form.bundle.js: {}
+  css:
+    theme:
+      css/subscribe-block.css: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+notify_subscribers:
+  version: 1.x
+  js:
+    js/node-edit.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/drupalSettings
+

@@ -1,0 +1,6 @@
+node_subscribe.settings_form:
+  title: 'node subscribe config'
+  base_route_name: node_subscribe.analytics
+  names:
+    - node_subscribe.settings
+

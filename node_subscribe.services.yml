@@ -1,0 +1,12 @@
+services:
+  node_subscribe.email.service:
+    class: Drupal\node_subscribe\Service\NodeSubscribeEmailService
+    arguments: [
+      '@entity_type.manager',
+      '@plugin.manager.mail',
+      '@logger.factory',
+      '@request_stack',
+      '@path_alias.manager',
+      '@language_manager',
+      '@config.factory',
+    ]

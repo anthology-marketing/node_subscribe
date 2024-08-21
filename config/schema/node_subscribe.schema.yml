@@ -1,0 +1,562 @@
+node_subscribe.settings:
+  type: config_object
+  label: 'Node subscribe settings'
+  mapping:
+    token_expire_message:
+      type: mapping
+      label: 'mapping'
+      mapping:
+        title:
+          type: label
+          label: 'title'
+        body:
+          type: text
+          label: 'body'
+        help_text:
+          type: text
+          label: 'help_text'
+        ok_button_text:
+          type: label
+          label: 'ok_button_text'
+    subscribe_bar_text:
+      type: mapping
+      label: 'mapping'
+      mapping:
+        subscription_prompt_title:
+          type: label
+          label: 'subscription_prompt_title'
+        subscribe_prompt:
+          type: label
+          label: 'subscribe_prompt'
+        subscribed_now_title:
+          type: label
+          label: 'subscribed_now_title'
+        subscribed_title:
+          type: label
+          label: 'subscribed_title'
+        unsubscribed_now_title:
+          type: label
+          label: 'unsubscribed_now_title'
+        subscribed_message:
+          type: label
+          label: 'subscribed_message'
+        pending_message:
+          type: label
+          label: 'pending_message'
+        unsubscribe_message:
+          type: label
+          label: 'unsubscribe_message'
+        email_box_placeholder:
+          type: label
+          label: 'email_box_placeholder'
+    subscribe_button_text:
+      type: mapping
+      label: 'mapping'
+      mapping:
+        subscribe:
+          type: label
+          label: 'subscribe'
+        cancel_subscription:
+          type: label
+          label: 'cancel_subscription'
+        subscription_pending:
+          type: label
+          label: 'subscription_pending'
+        manage_subscription:
+          type: label
+          label: 'manage_subscription'
+    account_manage_button_label_text:
+      type: mapping
+      label: 'mapping'
+      mapping:
+        suspend:
+          type: label
+          label: 'suspend'
+        unsuspend:
+          type: label
+          label: 'unsuspend'
+        delete:
+          type: label
+          label: 'delete'
+    account_manage_button_text:
+      type: mapping
+      label: 'mapping'
+      mapping:
+        suspend:
+          type: label
+          label: 'suspend'
+        unsuspend:
+          type: label
+          label: 'unsuspend'
+        delete:
+          type: label
+          label: 'delete'
+    theme:
+      type: mapping
+      label: 'mapping'
+      mapping:
+        icon_link:
+          type: label
+          label: 'icon_link'
+    #
+    subscribe_modal_text:
+      type: mapping
+      label: 'subscribe_modal_text'
+      mapping:
+        subscribed:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            help_text:
+              type: text
+              label: 'help_text'
+            save_button_text:
+              type: label
+              label: 'save_button_text'
+            do_not_save_button_text:
+              type: label
+              label: 'do_not_save_button_text'
+        confirm:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            help_text:
+              type: text
+              label: 'help_text'
+            button:
+              type: label
+              label: 'button'
+        pending:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            help_text:
+              type: text
+              label: 'help_text'
+            button:
+              type: label
+              label: 'button'
+        invalid_email:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            help_text:
+              type: text
+              label: 'help_text'
+            button:
+              type: label
+              label: 'button'
+        confirm_success:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            help_text:
+              type: text
+              label: 'help_text'
+            button:
+              type: label
+              label: 'button'
+        confirm_failed:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            help_text:
+              type: text
+              label: 'help_text'
+            button:
+              type: label
+              label: 'button'
+        confirm_failed_delete:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            help_text:
+              type: text
+              label: 'help_text'
+            button:
+              type: label
+              label: 'button'
+        subscribe_failed:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            help_text:
+              type: text
+              label: 'help_text'
+            button:
+              type: label
+              label: 'button'
+        captcha_failed:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            help_text:
+              type: text
+              label: 'help_text'
+            button:
+              type: label
+              label: 'button'
+        new_device:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            help_text:
+              type: text
+              label: 'help_text'
+            button:
+              type: label
+              label: 'button'
+            save_button_text:
+              type: label
+              label: 'save_button_text'
+            do_not_save_button_text:
+              type: label
+              label: 'do_not_save_button_text'
+        never_verified:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            help_text:
+              type: text
+              label: 'help_text'
+            button:
+              type: label
+              label: 'button'
+        invalid_token:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            help_text:
+              type: text
+              label: 'help_text'
+            button:
+              type: label
+              label: 'button'
+        unsubscribe_failed:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            help_text:
+              type: text
+              label: 'help_text'
+            button:
+              type: label
+              label: 'button'
+        email_unsubscribe_success:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            help_text:
+              type: text
+              label: 'help_text'
+            button:
+              type: label
+              label: 'button'
+        email_unsubscribe_failed:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            help_text:
+              type: text
+              label: 'help_text'
+            button:
+              type: label
+              label: 'button'
+        email_unsubscribe_from_unverified_device:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            help_text:
+              type: text
+              label: 'help_text'
+            button:
+              type: label
+              label: 'button'
+        manage_modal:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            help_text:
+              type: text
+              label: 'help_text'
+            unsubscribe_button:
+              type: label
+              label: 'unsubscribe_button'
+            button:
+              type: label
+              label: 'button'
+        email_send_failed:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            help_text:
+              type: text
+              label: 'help_text'
+            button:
+              type: label
+              label: 'button'
+    #
+    account_manage_modal_text:
+      type: mapping
+      label: 'account_manage_modal_text'
+      mapping:
+        account_delete_message:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            help_text:
+              type: text
+              label: 'help_text'
+            confirm_button:
+              type: label
+              label: 'confirm_button'
+            cancel_button:
+              type: label
+              label: 'cancel_button'
+        account_delete_requested:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+        account_delete_failed:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+        account_suspend_requested:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+        account_suspend_failed:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+        account_suspend_removed:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+    #
+    subscribe_email_template:
+      type: mapping
+      label: 'subscribe_email_template'
+      mapping:
+        confirmation_email:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            button:
+              type: label
+              label: 'button'
+        new_device_email:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            button:
+              type: label
+              label: 'button'
+        page_added_email:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            button:
+              type: label
+              label: 'button'
+        page_removed_email:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            button:
+              type: label
+              label: 'button'
+        page_removed_confirmation_email:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            button:
+              type: label
+              label: 'button'
+        page_updated_email:
+          type: mapping
+          label: 'mapping'
+          mapping:
+            title:
+              type: label
+              label: 'title'
+            body:
+              type: text
+              label: 'body'
+            button:
+              type: label
+              label: 'button'

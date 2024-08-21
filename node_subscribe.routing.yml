@@ -1,0 +1,156 @@
+node_subscribe.form:
+  path: '/node_subscribe'
+  defaults:
+    _form: '\Drupal\node_subscribe\Form\NodeSubscribeForm'
+    _title: 'Subscribe to this page'
+  requirements:
+    _permission: 'access content'
+##################################
+####### Reporting Route #########
+##################################
+node_subscribe.analytics:
+  path: 'admin/node_subscribe/analytics'
+  defaults:
+    _form: '\Drupal\node_subscribe\Form\NodeSubscribeAnalytics'
+    _title: 'Node Subscribe Analytics'
+  requirements:
+    _permission: 'administer site configuration'
+##################################
+##### Module Settings Route ######
+##################################
+node_subscribe.settings_form:
+  path: '/admin/config/node-subscribe/settings'
+  defaults:
+    _form: '\Drupal\node_subscribe\Form\NodeSubscribeSettingsForm'
+    _title: 'Node Subscribe Settings Form'
+  requirements:
+    _permission: 'administer site configuration'
+node_subscribe.recaptcha_form:
+  path: '/admin/config/node-subscribe/recaptcha'
+  defaults:
+    _form: '\Drupal\node_subscribe\Form\NodeSubscribeReCaptchaForm'
+    _title: 'Node Subscribe ReCapcha Form'
+  requirements:
+    _permission: 'administer site configuration'
+node_subscribe.manage_subscribers_form:
+  path: '/admin/config/node-subscribe/manage-subscribers'
+  defaults:
+    _form: '\Drupal\node_subscribe\Form\NodeSubscribeManageSubscribersForm'
+    _title: 'Node Subscribe - Manage Subscribers'
+  requirements:
+    _permission: 'administer site configuration'
+node_subscribe.manage_subscribers_delete_form:
+  path: '/admin/config/node-subscribe/manage-subscribers-delete'
+  defaults:
+    _form: '\Drupal\node_subscribe\Form\NodeSubscribeManageSubscribersDeleteForm'
+    _title: 'Node Subscribe - Manage Subscribers Delete'
+  requirements:
+    _permission: 'administer site configuration'
+node_subscribe.view_subscriber_details:
+  path: '/admin/config/node-subscribe/manage-subscribers/{smid}'
+  defaults:
+    _controller: '\Drupal\node_subscribe\Controller\NodeSubscribeViewSubscriberController::view'
+    _title: 'subscriber {smid}'
+  requirements:
+    _permission: 'administer site configuration'
+    smid: ^\d+$
+node_subscribe.view_subscriber_details_disable_subscription:
+  path: '/admin/config/node-subscribe/manage-subscribers/{smid}/{nid}/disable'
+  defaults:
+    _form: '\Drupal\node_subscribe\Form\ConfirmDisableSubscribedNodeForm'
+    _title: 'Confirm Disabled {nid} for {smid}'
+  requirements:
+    _permission: 'administer site configuration'
+    smid: ^\d+$
+    nid: ^\d+$
+node_subscribe.manage_subscribers_form_delete:
+  path: '/admin/config/node-subscribe/manage-subscribers/{smid}/delete'
+  defaults:
+    _form: '\Drupal\node_subscribe\Form\ConfirmDeleteSubscriberForm'
+    _title: 'Confirm Deletion'
+  requirements:
+    _permission: 'administer site configuration'
+    smid: ^\d+$
+##################################
+##### Subscribe API Routes #######
+##################################
+node_subscribe.init:
+  path: '/node_subscribe/init'
+  defaults:
+    _controller: '\Drupal\node_subscribe\Controller\NodeSubscribeController::init'
+  method: [GET]
+  requirements:
+      _access: 'TRUE'
+node_subscribe.subscription_status:
+  path: '/node_subscribe/subscription_status'
+  defaults:
+    _controller: '\Drupal\node_subscribe\Controller\NodeSubscribeController::subscriptionStatus'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+node_subscribe.verification:
+  path: '/node_subscribe/verification'
+  defaults:
+    _controller: '\Drupal\node_subscribe\Controller\NodeSubscribeController::verification'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+node_subscribe.subscribe:
+  path: '/node_subscribe/subscribe'
+  defaults:
+    _controller: '\Drupal\node_subscribe\Controller\NodeSubscribeController::subscribe'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+node_subscribe.unsubscribe:
+  path: '/node_subscribe/unsubscribe'
+  defaults:
+    _controller: '\Drupal\node_subscribe\Controller\NodeSubscribeController::unsubscribe'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+node_subscribe.unsubscribeFromEmail:
+  path: '/node_subscribe/unsubscribeFromEmail'
+  defaults:
+    _controller: '\Drupal\node_subscribe\Controller\NodeSubscribeController::unsubscribeFromEmail'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+node_subscribe.my_subscriptions:
+  path: '/node_subscribe/my_subscriptions'
+  defaults:
+    _controller: '\Drupal\node_subscribe\Controller\NodeSubscribeController::mySubscriptions'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+node_subscribe.account_delete:
+  path: '/node_subscribe/account_delete'
+  defaults:
+    _controller: '\Drupal\node_subscribe\Controller\NodeSubscribeController::accountDelete'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+node_subscribe.account_suspend:
+  path: '/node_subscribe/account_suspend'
+  defaults:
+    _controller: '\Drupal\node_subscribe\Controller\NodeSubscribeController::accountSuspend'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+#node_subscribe.emailValidation:
+#  path: '/node_subscribe/emailValidation'
+#  defaults:
+#    _controller: '\Drupal\node_subscribe\Controller\NodeSubscribeController::emailValidation'
+#  methods: [POST]
+#  requirements:
+#    _access: 'TRUE'
+
+# node_subscribe.settings_form:
+#   path: '/admin/config/system/mymodule-settings'
+#   defaults:
+#     _form: '\Drupal\mymodule\Form\MymoduleSettingsForm'
+#     _title: 'Mymodule Settings Form'
+#   requirements:
+#     _permission: 'manage mymodule settings'
+#   options:
+#     _admin_route: TRUE

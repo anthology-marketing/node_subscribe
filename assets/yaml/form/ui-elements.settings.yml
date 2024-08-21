@@ -1,0 +1,698 @@
+subscribe_banner_text:
+  '#type': 'fieldset'
+  '#title': 'Subscription Banner UI Text'
+  subscription_prompt_title:
+    '#type': 'textfield'
+    '#title': 'Initial Prompt Title'
+    '#description': 'This title shows to a user who is not signed up or saved on the current device'
+    '#default_value': 'subscribe_bar_text.subscription_prompt_title'
+  subscribe_prompt:
+    '#type': 'textfield'
+    '#title': 'Initial Prompt Description'
+    '#description': 'This description shows to a user who is not signed up or saved on the current device'
+    '#default_value': 'subscribe_bar_text.subscribe_prompt'
+  subscribed_title:
+    '#type': 'textfield'
+    '#title': 'Already Subscribed Title'
+    '#description': 'This title shows to a user who is already subscribed to a page on load.'
+    '#default_value': 'subscribe_bar_text.subscribed_title'
+  subscribed_now_title:
+    '#type': 'textfield'
+    '#title': 'Subscribed Success Title'
+    '#description': 'This title shows to a user who has successfully added a page to their subscription'
+    '#default_value': 'subscribe_bar_text.subscribed_now_title'
+  subscribed_message:
+    '#type': 'textfield'
+    '#title': 'Subscribed Success Description'
+    '#description': 'This description shows to a user when successfully added a page to their subscription'
+    '#default_value': 'subscribe_bar_text.subscribed_message'
+  pending_message:
+    '#type': 'textfield'
+    '#title': 'Subscribed Pending Description'
+    '#description': 'This description shows to a user who has successfully added a page to their subscription, but need to confirm their email or device.'
+    '#default_value': 'subscribe_bar_text.pending_message'
+  unsubscribed_now_title:
+    '#type': 'textfield'
+    '#title': 'Unsubscribed Success Title'
+    '#description': 'This title shows to a user who has successfully removed a page to their subscription'
+    '#default_value': 'subscribe_bar_text.unsubscribed_now_title'
+  unsubscribe_message:
+    '#type': 'textfield'
+    '#title': 'Unsubscribed Success Description'
+    '#description': 'This description shows to a user when successfully removed a page to their subscription'
+    '#default_value': 'subscribe_bar_text.unsubscribe_message'
+  email_box_placeholder:
+    '#type': 'textfield'
+    '#title': 'Email Box Placeholder'
+    '#description': 'This shows in the sign up email box as placeholder'
+    '#default_value': 'subscribe_bar_text.email_box_placeholder'
+
+subscribe_banner_button_text:
+  '#type': 'fieldset'
+  '#title': 'Subscription Banner Button Text'
+  subscribe:
+    '#type': 'textfield'
+    '#title': 'Subscribe Button'
+    '#description': 'Button to subscribe to a page'
+    '#default_value': 'subscribe_button_text.subscribe'
+  cancel_subscription:
+    '#type': 'textfield'
+    '#title': 'Unubscribe Button'
+    '#description': 'Button to unsubscribe from a page'
+    '#default_value': 'subscribe_button_text.cancel_subscription'
+  subscription_pending:
+    '#type': 'textfield'
+    '#title': 'Pending Button'
+    '#description': 'Button when a subscription is pending'
+    '#default_value': 'subscribe_button_text.subscription_pending'
+  manage_subscription:
+    '#type': 'textfield'
+    '#title': 'Manage Subscription Button'
+    '#description': 'Button to open manage subscription modal'
+    '#default_value': 'subscribe_button_text.manage_subscription'
+
+subscribe_modal_text:
+  '#type': 'fieldset'
+  '#title': 'Subscription Modal UI Text'
+  subscribed_modal:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Subscribed Modal'
+    '#description': "Modal for first time sign up."
+    subscribed_modal_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_modal_text.subscribed.title'
+    subscribed_modal_body:
+      '#type': 'textarea'
+      '#title': 'Body'
+      '#default_value': 'subscribe_modal_text.subscribed.body'
+    subscribed_modal_help_text:
+      '#type': 'textarea'
+      '#title': 'Help Text'
+      '#default_value': 'subscribe_modal_text.subscribed.help_text'
+    subscribed_modal_save_button_text:
+      '#type': 'textfield'
+      '#title': 'Save Button Text'
+      '#default_value': 'subscribe_modal_text.subscribed.save_button_text'
+    subscribed_modal_do_not_save_button_text:
+      '#type': 'textfield'
+      '#title': 'Do Not Save Button Text'
+      '#default_value': 'subscribe_modal_text.subscribed.do_not_save_button_text'
+  confirm_modal:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Confirm Email Modal'
+    '#description': "Modal to ask user to check their email to confirm their sign up."
+    confirm_modal_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_modal_text.confirm.title'
+    confirm_modal_body:
+      '#type': 'textarea'
+      '#title': 'body'
+      '#default_value': 'subscribe_modal_text.confirm.body'
+    confirm_modal_help_text:
+      '#type': 'textarea'
+      '#title': 'Help Text'
+      '#default_value': 'subscribe_modal_text.confirm.help_text'
+    confirm_modal_button:
+      '#type': 'textfield'
+      '#title': 'Close Button'
+      '#default_value': 'subscribe_modal_text.confirm.button'
+  pending_modal:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Subscription Pending Modal'
+    '#description': "Modal to ask user to check their email to confirm their sign up when they click on the pending button."
+    pending_modal_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_modal_text.pending.title'
+    pending_modal_body:
+      '#type': 'textarea'
+      '#title': 'body'
+      '#default_value': 'subscribe_modal_text.pending.body'
+    pending_modal_help_text:
+      '#type': 'textarea'
+      '#title': 'Help Text'
+      '#default_value': 'subscribe_modal_text.pending.help_text'
+    pending_modal_button:
+      '#type': 'textfield'
+      '#title': 'Close Button'
+      '#default_value': 'subscribe_modal_text.pending.button'
+  invalid_email_modal:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Subscription Invalid Email Modal'
+    '#description': "Modal to alert user the email they entered is invalid"
+    invalid_email_modal_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_modal_text.invalid_email.title'
+    invalid_email_modal_body:
+      '#type': 'textarea'
+      '#title': 'body'
+      '#default_value': 'subscribe_modal_text.invalid_email.body'
+    invalid_email_modal_help_text:
+      '#type': 'textarea'
+      '#title': 'Help Text'
+      '#default_value': 'subscribe_modal_text.invalid_email.help_text'
+    invalid_email_modal_button:
+      '#type': 'textfield'
+      '#title': 'Close Button'
+      '#default_value': 'subscribe_modal_text.invalid_email.button'
+  confirm_success_modal:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Subscription Confirm Success Modal'
+    '#description': "Modal shows after a user confirms their email successfully"
+    confirm_success_modal_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_modal_text.confirm_success.title'
+    confirm_success_modal_body:
+      '#type': 'textarea'
+      '#title': 'body'
+      '#default_value': 'subscribe_modal_text.confirm_success.body'
+    confirm_success_modal_help_text:
+      '#type': 'textarea'
+      '#title': 'Help Text'
+      '#default_value': 'subscribe_modal_text.confirm_success.help_text'
+    confirm_success_modal_button:
+      '#type': 'textfield'
+      '#title': 'Close Button'
+      '#default_value': 'subscribe_modal_text.confirm_success.button'
+  confirm_failed_modal:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Subscription Confirm Failed Modal'
+    '#description': "Modal shows if a user goes to the confirmation link with an invalid token"
+    confirm_failed_modal_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_modal_text.confirm_failed.title'
+    confirm_failed_modal_body:
+      '#type': 'textarea'
+      '#title': 'body'
+      '#default_value': 'subscribe_modal_text.confirm_failed.body'
+    confirm_failed_modal_help_text:
+      '#type': 'textarea'
+      '#title': 'Help Text'
+      '#default_value': 'subscribe_modal_text.confirm_failed.help_text'
+    confirm_failed_modal_button:
+      '#type': 'textfield'
+      '#title': 'Close Button'
+      '#default_value': 'subscribe_modal_text.confirm_failed.button'
+  confirm_failed_delete_modal:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Subscription Confirm Failed After Delete Modal'
+    '#description': "Modal shows if a user goes to the confirmation link after deleting his/her account (before the account actually deletes from the system)."
+    confirm_failed_delete_modal_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_modal_text.confirm_failed_delete.title'
+    confirm_failed_delete_modal_body:
+      '#type': 'textarea'
+      '#title': 'body'
+      '#default_value': 'subscribe_modal_text.confirm_failed_delete.body'
+    confirm_failed_delete_modal_help_text:
+      '#type': 'textarea'
+      '#title': 'Help Text'
+      '#default_value': 'subscribe_modal_text.confirm_failed_delete.help_text'
+    confirm_failed_delete_modal_button:
+      '#type': 'textfield'
+      '#title': 'Close Button'
+      '#default_value': 'subscribe_modal_text.confirm_failed_delete.button'
+  subscribe_failed_modal:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Add Subscription Failed Modal'
+    '#description': "Modal shows if for some reason, it failed to add a page to the user's subscription."
+    subscribe_failed_modal_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_modal_text.subscribe_failed.title'
+    subscribe_failed_modal_body:
+      '#type': 'textarea'
+      '#title': 'body'
+      '#default_value': 'subscribe_modal_text.subscribe_failed.body'
+    subscribe_failed_modal_help_text:
+      '#type': 'textarea'
+      '#title': 'Help Text'
+      '#default_value': 'subscribe_modal_text.subscribe_failed.help_text'
+    subscribe_failed_modal_button:
+      '#type': 'textfield'
+      '#title': 'Close Button'
+      '#default_value': 'subscribe_modal_text.subscribe_failed.button'
+  captcha_failed_modal:
+    '#type': 'details'
+    '#open': false
+    '#title': 'RECAPTCHA verification Failed Modal'
+    '#description': "Modal shows if for some reason, it failed to verify the captcha token with google."
+    captcha_failed_modal_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_modal_text.captcha_failed.title'
+    captcha_failed_modal_body:
+      '#type': 'textarea'
+      '#title': 'body'
+      '#default_value': 'subscribe_modal_text.captcha_failed.body'
+    captcha_failed_modal_help_text:
+      '#type': 'textarea'
+      '#title': 'Help Text'
+      '#default_value': 'subscribe_modal_text.captcha_failed.help_text'
+    captcha_failed_modal_button:
+      '#type': 'textfield'
+      '#title': 'Close Button'
+      '#default_value': 'subscribe_modal_text.captcha_failed.button'
+  new_device_modal:
+    '#type': 'details'
+    '#open': false
+    '#title': 'New Device Modal'
+    '#description': "Modal for new device, if the email is active, this modal will be shown."
+    new_device_modal_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_modal_text.new_device.title'
+    new_device_modal_body:
+      '#type': 'textarea'
+      '#title': 'Body'
+      '#default_value': 'subscribe_modal_text.new_device.body'
+    new_device_modal_help_text:
+      '#type': 'textarea'
+      '#title': 'Help Text'
+      '#default_value': 'subscribe_modal_text.new_device.help_text'
+    new_device_modal_save_button_text:
+      '#type': 'textfield'
+      '#title': 'Save Button Text'
+      '#default_value': 'subscribe_modal_text.new_device.save_button_text'
+    new_device_modal_do_not_save_button_text:
+      '#type': 'textfield'
+      '#title': 'Do Not Save Button Text'
+      '#default_value': 'subscribe_modal_text.new_device.do_not_save_button_text'
+  never_verified_modal:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Email never verified'
+    '#description': "Modal shows if a user enters an email that had attempted to sign up, but never verified."
+    never_verified_modal_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_modal_text.never_verified.title'
+    never_verified_modal_body:
+      '#type': 'textarea'
+      '#title': 'body'
+      '#default_value': 'subscribe_modal_text.never_verified.body'
+    never_verified_modal_help_text:
+      '#type': 'textarea'
+      '#title': 'Help Text'
+      '#default_value': 'subscribe_modal_text.never_verified.help_text'
+    never_verified_modal_button:
+      '#type': 'textfield'
+      '#title': 'Close Button'
+      '#default_value': 'subscribe_modal_text.never_verified.button'
+  invalid_token_modal:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Invalid Token'
+    '#description': "Modal shows if a user has an invalid token saved in the browser."
+    invalid_token_modal_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_modal_text.invalid_token.title'
+    invalid_token_modal_body:
+      '#type': 'textarea'
+      '#title': 'body'
+      '#default_value': 'subscribe_modal_text.invalid_token.body'
+    invalid_token_modal_help_text:
+      '#type': 'textarea'
+      '#title': 'Help Text'
+      '#default_value': 'subscribe_modal_text.invalid_token.help_text'
+    invalid_token_modal_button:
+      '#type': 'textfield'
+      '#title': 'Close Button'
+      '#default_value': 'subscribe_modal_text.invalid_token.button'
+  unsubscribe_failed_modal:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Failed to remove a page from subscription'
+    '#description': "Modal shows if for some reason, it failed to remove a page from a user's subscription."
+    unsubscribe_failed_modal_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_modal_text.unsubscribe_failed.title'
+    unsubscribe_failed_modal_body:
+      '#type': 'textarea'
+      '#title': 'body'
+      '#default_value': 'subscribe_modal_text.unsubscribe_failed.body'
+    unsubscribe_failed_modal_help_text:
+      '#type': 'textarea'
+      '#title': 'Help Text'
+      '#default_value': 'subscribe_modal_text.unsubscribe_failed.help_text'
+    unsubscribe_failed_modal_button:
+      '#type': 'textfield'
+      '#title': 'Close Button'
+      '#default_value': 'subscribe_modal_text.unsubscribe_failed.button'
+  email_unsubscribe_success_modal:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Successfully removed a page from subscription from email link'
+    '#description': "Modal shows if it has successfully removed a page from subscription from an email link."
+    email_unsubscribe_success_modal_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_modal_text.email_unsubscribe_success.title'
+    email_unsubscribe_success_modal_body:
+      '#type': 'textarea'
+      '#title': 'body'
+      '#default_value': 'subscribe_modal_text.email_unsubscribe_success.body'
+    email_unsubscribe_success_modal_help_text:
+      '#type': 'textarea'
+      '#title': 'Help Text'
+      '#default_value': 'subscribe_modal_text.email_unsubscribe_success.help_text'
+    email_unsubscribe_success_modal_button:
+      '#type': 'textfield'
+      '#title': 'Close Button'
+      '#default_value': 'subscribe_modal_text.email_unsubscribe_success.button'
+  email_unsubscribe_failed_modal:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Failed to remove a page from subscription from email link'
+    '#description': "Modal shows if it has failed removed a page from subscription from an email link."
+    email_unsubscribe_failed_modal_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_modal_text.email_unsubscribe_failed.title'
+    email_unsubscribe_failed_modal_body:
+      '#type': 'textarea'
+      '#title': 'body'
+      '#default_value': 'subscribe_modal_text.email_unsubscribe_failed.body'
+    email_unsubscribe_failed_modal_help_text:
+      '#type': 'textarea'
+      '#title': 'Help Text'
+      '#default_value': 'subscribe_modal_text.email_unsubscribe_failed.help_text'
+    email_unsubscribe_failed_modal_button:
+      '#type': 'textfield'
+      '#title': 'Close Button'
+      '#default_value': 'subscribe_modal_text.email_unsubscribe_failed.button'
+  email_unsubscribe_from_unverified_device_modal:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Unsubscribe link opened on an unverified device'
+    '#description': "Modal shows if a user opened an unsubscribe link on an unverfied device."
+    email_unsubscribe_from_unverified_device_modal_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_modal_text.email_unsubscribe_from_unverified_device.title'
+    email_unsubscribe_from_unverified_device_modal_body:
+      '#type': 'textarea'
+      '#title': 'body'
+      '#default_value': 'subscribe_modal_text.email_unsubscribe_from_unverified_device.body'
+    email_unsubscribe_from_unverified_device_modal_help_text:
+      '#type': 'textarea'
+      '#title': 'Help Text'
+      '#default_value': 'subscribe_modal_text.email_unsubscribe_from_unverified_device.help_text'
+    email_unsubscribe_from_unverified_device_modal_button:
+      '#type': 'textfield'
+      '#title': 'Close Button'
+      '#default_value': 'subscribe_modal_text.email_unsubscribe_from_unverified_device.button'
+  manage_modal:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Manage Pages Modal'
+    '#description': "Modal for managing pages"
+    manage_modal_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_modal_text.manage_modal.title'
+    manage_modal_body:
+      '#type': 'textarea'
+      '#title': 'body'
+      '#description': "This body text shows when a user has no subscribed pages."
+      '#default_value': 'subscribe_modal_text.manage_modal.body'
+    manage_modal_help_text:
+      '#type': 'textarea'
+      '#title': 'Help Text'
+      '#description': "This help text shows when a user has no subscribed pages."
+      '#default_value': 'subscribe_modal_text.manage_modal.help_text'
+    manage_modal_unsubscribe_button:
+      '#type': 'textfield'
+      '#title': 'Unsubscribe Button Label'
+      '#default_value': 'subscribe_modal_text.manage_modal.unsubscribe_button'
+    manage_modal_button:
+      '#type': 'textfield'
+      '#title': 'Close Button'
+      '#default_value': 'subscribe_modal_text.manage_modal.button'
+  email_send_failed:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Email Send Failed (General Failure)'
+    '#description': "Modal for when any email failed to sent"
+    email_send_failed_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_modal_text.email_send_failed.title'
+    email_send_failed_body:
+      '#type': 'textarea'
+      '#title': 'body'
+      '#description': "This body text shows when any email failed to sent."
+      '#default_value': 'subscribe_modal_text.email_send_failed.body'
+    email_send_failed_help_text:
+      '#type': 'textarea'
+      '#title': 'Help Text'
+      '#default_value': 'subscribe_modal_text.email_send_failed.help_text'
+    email_send_failed_button:
+      '#type': 'textfield'
+      '#title': 'Close Button'
+      '#default_value': 'subscribe_modal_text.email_send_failed.button'
+
+account_manage_button_label_text:
+  '#type': 'fieldset'
+  '#title': 'Account Manage Buttons Label and Buttons Text'
+  suspend_button_label:
+    '#type': 'textfield'
+    '#title': 'Suspend Button Label Text'
+    '#default_value': 'account_manage_button_label_text.suspend'
+  suspend_button:
+    '#type': 'textfield'
+    '#title': 'Suspend Button Text'
+    '#default_value': 'account_manage_button_text.suspend'
+  unsuspend_button_label:
+    '#type': 'textfield'
+    '#title': 'Un-suspend Button Label Text'
+    '#default_value': 'account_manage_button_label_text.unsuspend'
+  unsuspend_button:
+    '#type': 'textfield'
+    '#title': 'Un-suspend Button Text'
+    '#default_value': 'account_manage_button_text.unsuspend'
+  delete_button_label:
+    '#type': 'textfield'
+    '#title': 'Delete Button Label Text'
+    '#default_value': 'account_manage_button_label_text.delete'
+  delete_button:
+    '#type': 'textfield'
+    '#title': 'Delete Button Text'
+    '#default_value': 'account_manage_button_text.delete'
+
+account_manage_modal_text:
+  '#type': 'fieldset'
+  '#title': 'Account Manage Modal UI Text'
+  account_delete_message:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Account Delete Action Message'
+    '#description': "Modal for when a user clicked on delete account button, and ask to confirm if they really want to delete it."
+    account_delete_message_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'account_manage_modal_text.account_delete_message.title'
+    account_delete_message_body:
+      '#type': 'textarea'
+      '#title': 'body'
+      '#description': "This body text shows when any email failed to sent."
+      '#default_value': 'account_manage_modal_text.account_delete_message.body'
+    account_delete_message_help_text:
+      '#type': 'textarea'
+      '#title': 'Help Text'
+      '#default_value': 'account_manage_modal_text.account_delete_message.help_text'
+    account_delete_message_confirm_button:
+      '#type': 'textfield'
+      '#title': 'Confirm Delete Button'
+      '#default_value': 'account_manage_modal_text.account_delete_message.confirm_button'
+    account_delete_message_cancel_button:
+      '#type': 'textfield'
+      '#title': 'Cancel Button'
+      '#default_value': 'account_manage_modal_text.account_delete_message.cancel_button'
+  account_delete_requested:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Account Delete Requested'
+    '#description': "Modal for when account delete was requested."
+    account_delete_requested_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'account_manage_modal_text.account_delete_requested.title'
+    account_delete_requested_body:
+      '#type': 'textarea'
+      '#title': 'Body'
+      '#default_value': 'account_manage_modal_text.account_delete_requested.body'
+  account_delete_failed:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Account Delete Failed'
+    '#description': "Modal for when account delete request failed."
+    account_delete_failed_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'account_manage_modal_text.account_delete_failed.title'
+    account_delete_failed_body:
+      '#type': 'textarea'
+      '#title': 'Body'
+      '#default_value': 'account_manage_modal_text.account_delete_failed.body'
+  account_suspend_requested:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Account Notification Suspend Requested'
+    '#description': "Modal for when account suspend requested."
+    account_suspend_requested_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'account_manage_modal_text.account_suspend_requested.title'
+    account_suspend_requested_body:
+      '#type': 'textarea'
+      '#title': 'Body'
+      '#default_value': 'account_manage_modal_text.account_suspend_requested.body'
+  account_suspend_failed:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Account Notification Suspend Request Failed'
+    '#description': "Modal for when account suspend request failed."
+    account_suspend_failed_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'account_manage_modal_text.account_suspend_failed.title'
+    account_suspend_failed_body:
+      '#type': 'textarea'
+      '#title': 'Body'
+      '#default_value': 'account_manage_modal_text.account_suspend_failed.body'
+  account_suspend_removed:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Account Notification Suspend Removed'
+    '#description': "Modal for when account suspend removed, when account is turned back into active."
+    account_suspend_removed_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'account_manage_modal_text.account_suspend_removed.title'
+    account_suspend_removed_body:
+      '#type': 'textarea'
+      '#title': 'Body'
+      '#default_value': 'account_manage_modal_text.account_suspend_removed.body'
+
+subscribe_email_templates:
+  '#type': 'fieldset'
+  '#title': 'Subscription Email Templates'
+  confirmation_email:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Confirmation Email'
+    '#description': "Confirmation email for first time sign up."
+    confirmation_email_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_email_template.confirmation_email.title'
+    confirmation_email_body:
+      '#type': 'textarea'
+      '#title': 'Body'
+      '#default_value': 'subscribe_email_template.confirmation_email.body'
+    confirmation_email_button:
+      '#type': 'textfield'
+      '#title': 'Save Button Text'
+      '#default_value': 'subscribe_email_template.confirmation_email.button'
+  new_device_email:
+    '#type': 'details'
+    '#open': false
+    '#title': 'New Device Email'
+    '#description': "Confirmation email for new device."
+    new_device_email_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_email_template.new_device_email.title'
+    new_device_email_body:
+      '#type': 'textarea'
+      '#title': 'Body'
+      '#default_value': 'subscribe_email_template.new_device_email.body'
+    new_device_email_button:
+      '#type': 'textfield'
+      '#title': 'Save Button Text'
+      '#default_value': 'subscribe_email_template.new_device_email.button'
+  page_added_email:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Page Added Email'
+    '#description': "This email is sent when a new page is added successfully."
+    page_added_email_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_email_template.page_added_email.title'
+    page_added_email_body:
+      '#type': 'textarea'
+      '#title': 'Body'
+      '#default_value': 'subscribe_email_template.page_added_email.body'
+    page_added_email_button:
+      '#type': 'textfield'
+      '#title': 'Save Button Text'
+      '#default_value': 'subscribe_email_template.page_added_email.button'
+  page_removed_email:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Page Removed Email'
+    '#description': "This email is sent when a user unfollows a page."
+    page_removed_email_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_email_template.page_removed_email.title'
+    page_removed_email_body:
+      '#type': 'textarea'
+      '#title': 'Body'
+      '#default_value': 'subscribe_email_template.page_removed_email.body'
+    page_removed_email_button:
+      '#type': 'textfield'
+      '#title': 'Save Button Text'
+      '#default_value': 'subscribe_email_template.page_removed_email.button'
+  page_removed_confirmation_email:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Page Remove Confirmation Email'
+    '#description': "This email is sent when a user clicks on an email unfollow link on an unverified device."
+    page_removed_confirmation_email_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_email_template.page_removed_confirmation_email.title'
+    page_removed_confirmation_email_body:
+      '#type': 'textarea'
+      '#title': 'Body'
+      '#default_value': 'subscribe_email_template.page_removed_confirmation_email.body'
+    page_removed_confirmation_email_button:
+      '#type': 'textfield'
+      '#title': 'Save Button Text'
+      '#default_value': 'subscribe_email_template.page_removed_confirmation_email.button'
+  page_updated_email:
+    '#type': 'details'
+    '#open': false
+    '#title': 'Page Updated Email'
+    '#description': "This email is sent to a following user when a page is updated"
+    page_updated_email_title:
+      '#type': 'textfield'
+      '#title': 'Title'
+      '#default_value': 'subscribe_email_template.page_updated_email.title'
+    page_updated_email_body:
+      '#type': 'textarea'
+      '#title': 'Body'
+      '#default_value': 'subscribe_email_template.page_updated_email.body'
+    page_updated_email_button:
+      '#type': 'textfield'
+      '#title': 'Save Button Text'
+      '#default_value': 'subscribe_email_template.page_updated_email.button'
