@@ -91,6 +91,9 @@ class MailerMessage {
 
     $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
 
+    // @todo: get proper language.
+    $language = 'en';
+
     $result = [];
     switch ($messageName) {
 

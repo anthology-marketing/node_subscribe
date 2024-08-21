@@ -216,6 +216,9 @@ class NodeSubscribeEmailService {
     $language = $this->languageManager->getCurrentLanguage()->getId();
     $configObject = $this->configFactory->get('node_subscribe.settings');
 
+    // @todo: get proper language.
+    $language = 'en';
+
     $result = [];
     switch ($key) {
 
