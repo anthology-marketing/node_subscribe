@@ -115,6 +115,7 @@ class ConfirmDisableSubscribedNodeForm extends ConfirmFormBase{
 
   private function getNodeTitle($nid){
     $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+    /** @var \Drupal\node\NodeInterface $node */
     $node = $node_storage->load($nid);
 
     return $node->get('title')->value;

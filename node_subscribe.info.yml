@@ -1,8 +1,10 @@
-name: Anthology Node Subscribe
+name: Node Subscribe
 description: Provides email subscription to nodes for anonymous users, a form block for user to subscribe, and funcationalities to manage subscription.
 package: Custom
 type: module
-# core: 8.x
-core_version_requirement: ^8 || ^9 || ^10
+core_version_requirement: ^10
 configure: node_subscribe.settings
-dependencies: []
+dependencies:
+  - drupal:block
+  - drupal:node
+  - drupal:path_alias

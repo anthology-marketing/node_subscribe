@@ -66,7 +66,7 @@ class NodeSubscribeCommand extends DrushCommands {
    * @aliases nse:pa
    * @option key
    *   The email policy key.
-   * @usage node-subscribe:page-added "diego.restrepo@anthology.com" "15956"
+   * @usage node-subscribe:page-added "user@emailprovider.com" "15956"
    */
   public function pageAdded(
     $to = 'email@email.com',
@@ -93,7 +93,7 @@ class NodeSubscribeCommand extends DrushCommands {
    * @aliases nse:pr
    * @option key
    *   The email policy key.
-   * @usage node-subscribe:page-removed "diego.restrepo@anthology.com" "15956"
+   * @usage node-subscribe:page-removed "user@emailprovider.com" "15956"
    */
   public function pageRemoved(
     $to = 'email@email.com',
@@ -119,7 +119,7 @@ class NodeSubscribeCommand extends DrushCommands {
    * @aliases nse:prc
    * @option key
    *   The email policy key.
-   * @usage node-subscribe:page-removed-confirm "diego.restrepo@anthology.com" "15956"
+   * @usage node-subscribe:page-removed-confirm "user@emailprovider.com" "15956"
    */
   public function pageRemovedConfirm(
     $to = 'email@email.com',
@@ -129,8 +129,8 @@ class NodeSubscribeCommand extends DrushCommands {
     ]
   ) {
     $extras = [
-      'new_secret' => '',
-      ' ' => '',
+      'new_secret' => 'f08d2e30a999b3d8c17260faa8ad7ca115fd6b9aea574611018d829ec97777ae',
+      'new_token' => '49e7608c2dbe525b8c453633deb1120ac9db2a1d419ebdf5f82ec8a59d587054',
     ];
     $this->emailService->pageRemovedConfirm($to, $nid, $extras);
   }
@@ -149,7 +149,7 @@ class NodeSubscribeCommand extends DrushCommands {
    * @aliases nse:nd
    * @option key
    *   The email policy key.
-   * @usage node-subscribe:new-device "diego.restrepo@anthology.com" "15956"
+   * @usage node-subscribe:new-device "user@emailprovider.com" "15956"
    */
   public function newDevice(
     $to = 'email@email.com',
@@ -159,8 +159,8 @@ class NodeSubscribeCommand extends DrushCommands {
     ]
   ) {
     $extras = [
-      'new_secret' => '',
-      ' ' => '',
+      'new_secret' => 'f08d2e30a999b3d8c17260faa8ad7ca115fd6b9aea574611018d829ec97777ae',
+      'new_token' => '49e7608c2dbe525b8c453633deb1120ac9db2a1d419ebdf5f82ec8a59d587054',
     ];
     $this->emailService->newDevice($to, $nid, $extras);
   }
@@ -179,7 +179,7 @@ class NodeSubscribeCommand extends DrushCommands {
    * @aliases nse:nu
    * @option key
    *   The email policy key.
-   * @usage node-subscribe:new-user "diego.restrepo@anthology.com" "15956"
+   * @usage node-subscribe:new-user "user@emailprovider.com" "15956"
    */
   public function newUser(
     $to = 'email@email.com',
@@ -188,7 +188,7 @@ class NodeSubscribeCommand extends DrushCommands {
       'key' => '*',
     ]
   ) {
-    $secret = '';
+    $secret = 'f08d2e30a999b3d8c17260faa8ad7ca115fd6b9aea574611018d829ec97777ae';
     $verification_link = 'https://newthology.lndo.site?subscriber=' . $secret;
     $extras = [
       'verification_link' => $verification_link,
@@ -210,7 +210,7 @@ class NodeSubscribeCommand extends DrushCommands {
    * @aliases nse:ns
    * @option key
    *   The email policy key.
-   * @usage node-subscribe:notify-subscriber "diego.restrepo@anthology.com" "15956"
+   * @usage node-subscribe:notify-subscriber "user@emailprovider.com" "15956"
    */
   public function nodeUpdated(
     $to = 'email@email.com',
@@ -219,7 +219,7 @@ class NodeSubscribeCommand extends DrushCommands {
       'key' => '*',
     ]
   ) {
-    $secret = '';
+    $secret = 'f08d2e30a999b3d8c17260faa8ad7ca115fd6b9aea574611018d829ec97777ae';
     $verification_link = 'https://newthology.lndo.site?subscriber=' . $secret;
     $extras = [
       'verification_link' => $verification_link,

@@ -144,13 +144,3 @@ node_subscribe.account_suspend:
 #  methods: [POST]
 #  requirements:
 #    _access: 'TRUE'
-
-# node_subscribe.settings_form:
-#   path: '/admin/config/system/mymodule-settings'
-#   defaults:
-#     _form: '\Drupal\mymodule\Form\MymoduleSettingsForm'
-#     _title: 'Mymodule Settings Form'
-#   requirements:
-#     _permission: 'manage mymodule settings'
-#   options:
-#     _admin_route: TRUE
