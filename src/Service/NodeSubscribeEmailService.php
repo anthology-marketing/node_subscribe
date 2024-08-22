@@ -124,9 +124,12 @@ class NodeSubscribeEmailService {
    */
   public function pageAdded(string $to, int|string $nid) {
     $key = 'page_added';
+
+    $config = \Drupal::config('system.site');
+
     $extras = [
       'nid' => $nid,
-      'subject' => $this->t('Anthology.com Content Subscription - Page Added'),
+      'subject' => $this->t('@name - Content Subscription - Page Added', ['@name' => $config->get('name')]),
       'to' => $to,
     ];
 
@@ -139,10 +142,13 @@ class NodeSubscribeEmailService {
    * Function to send email after removed a page to node subscribe.
    */
   public function pageRemoved(string $to, int|string $nid) {
+
+    $config = \Drupal::config('system.site');
+
     $key = 'page_removed';
     $extras = [
       'nid' => $nid,
-      'subject' => $this->t('Anthology.com Content Subscription - Page Removed'),
+      'subject' => $this->t('@name - Content Subscription - Page Removed', ['@name' => $config->get('name')]),
       'to' => $to,
     ];
 
@@ -156,9 +162,11 @@ class NodeSubscribeEmailService {
    */
   public function pageRemovedConfirm(string $to, int|string $nid, array $extras = []) {
 
+    $config = \Drupal::config('system.site');
+
     $key = 'page_removed_confirm';
     $extras['nid'] = $nid;
-    $extras['subject'] = $this->t('Anthology.com Content Subscription - Page Removed Confirmation');
+    $extras['subject'] = $this->t('@name - Content Subscription - Page Removed Confirmation', ['@name' => $config->get('name')]);
     $extras['to'] = $to;
 
     $data = $this->getMessageData($key, $extras);
@@ -171,9 +179,11 @@ class NodeSubscribeEmailService {
    */
   public function newDevice(string $to, int|string $nid, array $extras = []) {
 
+    $config = \Drupal::config('system.site');
+
     $key = 'new_device';
     $extras['nid'] = $nid;
-    $extras['subject'] = $this->t('Anthology.com Content Subscription - New Device Added');
+    $extras['subject'] = $this->t('@name - Content Subscription - New Device Added', ['@name' => $config->get('name')]);
     $extras['to'] = $to;
 
     $data = $this->getMessageData($key, $extras);
@@ -185,9 +195,12 @@ class NodeSubscribeEmailService {
    * Function to send email after added a new user to node subscribe.
    */
   public function newUser(string $to, int|string $nid, array $extras = []) {
+
+    $config = \Drupal::config('system.site');
+
     $key = 'new_user';
     $extras['nid'] = $nid;
-    $extras['subject'] = $this->t('Anthology.com Content Subscription - New User Added');
+    $extras['subject'] = $this->t('@name - Content Subscription - New User Added', ['@name' => $config->get('name')]);
     $extras['to'] = $to;
 
     $data = $this->getMessageData($key, $extras);
@@ -199,9 +212,12 @@ class NodeSubscribeEmailService {
    * Function to notify user about node change.
    */
   public function notifySubscriberOnNodeUpdate(string $to, int|string $nid, array $extras = []) {
+
+    $config = \Drupal::config('system.site');
+
     $key = 'page_updated';
     $extras['nid'] = $nid;
-    $extras['subject'] = $this->t('Anthology.com Content Subscription - Subscribed Content Updated');
+    $extras['subject'] = $this->t('@name - Content Subscription - Subscribed Content Updated', ['@name' => $config->get('name')]);
     $extras['to'] = $to;
 
     $data = $this->getMessageData($key, $extras);

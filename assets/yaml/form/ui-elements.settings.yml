@@ -594,6 +594,7 @@ account_manage_modal_text:
 subscribe_email_templates:
   '#type': 'fieldset'
   '#title': 'Subscription Email Templates'
+
   confirmation_email:
     '#type': 'details'
     '#open': false
