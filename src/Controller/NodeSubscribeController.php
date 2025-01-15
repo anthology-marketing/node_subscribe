@@ -488,10 +488,7 @@ class NodeSubscribeController extends ControllerBase {
                 'new_secret' => $new_secret,
                 'new_token' => $new_token,
               ];
-              // $mailer = new Mailer('send_new_device_email', $nid,
-              // $email, $mailer_extras);
-              // $mailer->sendMail();
-              $this->mailService->newDevice($subscriber->getEmailByToken($token), $nid, $mailer_extras);
+              $this->mailService->newDevice($email, $nid, $mailer_extras);
             }
 
             $response['subscription_token'] = $new_token;
