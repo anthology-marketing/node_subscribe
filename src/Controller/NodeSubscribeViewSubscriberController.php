@@ -2,10 +2,10 @@
 
 namespace Drupal\node_subscribe\Controller;
 
-use Drupal\Core\Url;
-use Drupal\Core\Controller\ControllerBase;
-use Drupal\node_subscribe\Subscriber\Subscriptions;
 use Drupal\Component\Render\FormattableMarkup;
+use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Url;
+use Drupal\node_subscribe\Subscriber\Subscriptions;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -22,10 +22,7 @@ class NodeSubscribeViewSubscriberController extends ControllerBase {
   protected $requestStack;
 
   /**
-   * ModalFormContactController constructor.
-   *
-   * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
-   *   The request stack.
+   * {@inheritdoc}
    */
   public function __construct(RequestStack $requestStack) {
     $this->requestStack = $requestStack;

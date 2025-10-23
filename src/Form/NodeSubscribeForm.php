@@ -32,7 +32,7 @@ class NodeSubscribeForm extends FormBase {
    */
   public function __construct(
     EmailValidatorInterface $email_validator,
-    RouteMatchInterface $route_match
+    RouteMatchInterface $route_match,
   ) {
     $this->emailValidator = $email_validator;
     $this->routeMatch = $route_match;

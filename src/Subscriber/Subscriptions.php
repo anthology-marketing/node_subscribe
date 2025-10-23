@@ -2,11 +2,11 @@
 
 namespace Drupal\node_subscribe\Subscriber;
 
-use Drupal\Core\Url;
-use Drupal\taxonomy\Entity\Term;
 use Drupal\Component\Render\FormattableMarkup;
 use Drupal\Component\Utility\Xss;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\Core\Url;
+use Drupal\taxonomy\Entity\Term;
 
 /**
  * Class subscription for subscriptions.
@@ -23,14 +23,14 @@ class Subscriptions {
   const TOKEN_TABLE = 'node_subscription_tokens';
 
   /**
-   * Class attribute.
+   * The smid of the subscriber.
    *
    * @var string
    */
   private $smid = NULL;
 
   /**
-   * Class attribute.
+   * The email of the subscriber.
    *
    * @var string
    */
@@ -105,7 +105,7 @@ class Subscriptions {
       $node = \Drupal::entityTypeManager()
         ->getStorage('node')->load($nid);
       $product = 'null';
-      if (is_null($node))  {
+      if (is_null($node)) {
         continue;
       }
       if ($node->hasField('field_product')) {
@@ -179,9 +179,10 @@ class Subscriptions {
     foreach ($nodes_list as $node) {
 
       $product = 'null';
+      $status = FALSE;
       if (!is_null($node['node']) && $node['node']->hasField('field_product') && $node['node']->get('field_product')->getValue()) {
         $product_term = Term::load($node['node']->get('field_product')->getValue()[0]['target_id']);
-        $status = $node['extra']->status;
+        $status = $node['extra']->status ?? FALSE;
         if ($product_term) {
           $product = $product_term->getName();
         }
@@ -247,7 +248,7 @@ class Subscriptions {
     $result_array = [];
     foreach ($result as $row) {
 
-      $token_string = (str_repeat('*', 30) . substr($row->token, mb_strlen($row->token) * 0.8, mb_strlen($row->token)));
+      $token_string = (str_repeat('*', 30) . substr($row->token, (int) (mb_strlen($row->token) * 0.8), mb_strlen($row->token)));
       // -1 is one-time token
       $verified_string = ($row->verified == 1 ? 'Yes' : ($row->verified == 0 ? 'No' : 'No - one-time token'));
       // <a class="button button--danger" href=":delete">@delete</a>

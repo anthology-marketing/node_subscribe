@@ -35,7 +35,7 @@ class NodeSubscribeBlock extends BlockBase implements ContainerFactoryPluginInte
     array $configuration,
     $plugin_id,
     $plugin_definition,
-    RouteMatchInterface $route_match_interface
+    RouteMatchInterface $route_match_interface,
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->routeMatchInterface = $route_match_interface;
@@ -48,7 +48,7 @@ class NodeSubscribeBlock extends BlockBase implements ContainerFactoryPluginInte
     ContainerInterface $container,
     array $configuration,
     $plugin_id,
-    $plugin_definition
+    $plugin_definition,
   ) {
     return new static(
       $configuration,

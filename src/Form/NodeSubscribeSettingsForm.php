@@ -37,7 +37,7 @@ class NodeSubscribeSettingsForm extends ConfigFormBase {
   protected $languageManager;
 
   /**
-   * ModalFormContactController constructor.
+   * Constructs a form to set the node subscribe config.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   A config factory instance.
@@ -49,7 +49,7 @@ class NodeSubscribeSettingsForm extends ConfigFormBase {
   public function __construct(
     ConfigFactoryInterface $config_factory,
     ModuleHandler $moduleHandler,
-    LanguageManagerInterface $languageManager
+    LanguageManagerInterface $languageManager,
   ) {
     $this->configFactory = $config_factory;
     $this->moduleHandler = $moduleHandler;
@@ -134,34 +134,31 @@ class NodeSubscribeSettingsForm extends ConfigFormBase {
     // /** @var \Drupal\Core\Language\LanguageInterface[] $languages */
     // $languages = $this->languageManager->getLanguages();
     // foreach ($languages as $lang_key => $language) {
-
-    //   $form[$lang_key] = [
-    //     '#type' => 'details',
-    //     '#title' => $language->getName(),
-    //     '#group' => 'tabs',
-    //   ];
-
-    //   $ui_settings_data_copy = [];
-    //   $this->arrayWalkReplaceKeysRecursive($ui_settings_data, $ui_settings_data_copy, $lang_key);
-
-    //   array_walk_recursive($ui_settings_data_copy, function (&$item, $key) use ($config, $lang_key) {
-    //     if ($key == '#default_value') {
-    //       $item = $config->get($lang_key . '.' . $item);
-    //     }
-    //   });
-
-    //   foreach ($ui_settings_data_copy as $key => $field) {
-    //     $form[$lang_key][$key] = $field;
-    //   }
+    // $form[$lang_key] = [
+    // '#type' => 'details',
+    // '#title' => $language->getName(),
+    // '#group' => 'tabs',
+    // ];
+    // $ui_settings_data_copy = [];
+    // $this->arrayWalkReplaceKeysRecursive(
+    // $ui_settings_data, $ui_settings_data_copy, $lang_key);
+    // array_walk_recursive($ui_settings_data_copy,
+    // function (&$item, $key) use ($config, $lang_key) {
+    // if ($key == '#default_value') {
+    // $item = $config->get($lang_key . '.' . $item);
     // }
-
+    // });.
+    // foreach ($ui_settings_data_copy as $key => $field) {
+    // $form[$lang_key][$key] = $field;
+    // }
+    // }.
     return parent::buildForm($form, $form_state);
   }
 
   /**
    * Function to replace keys trought an array.
    */
-  private function arrayWalkReplaceKeysRecursive(array &$origin, array &$modified, string $prefix = NULL) {
+  private function arrayWalkReplaceKeysRecursive(array &$origin, array &$modified, ?string $prefix = NULL) {
 
     if (is_null($prefix)) {
       array_walk($origin, function ($item, $key) use (&$modified) {
@@ -237,13 +234,14 @@ class NodeSubscribeSettingsForm extends ConfigFormBase {
     // /** @var \Drupal\Core\Language\LanguageInterface[] $languages */
     // $languages = $this->languageManager->getLanguages();
     // foreach ($languages as $lang_key => $language) {
-    //   $this->arrayWalkKeyRecursive($ui_settings_data, function ($item, $key) use ($config, $form_state, $lang_key) {
-    //     if (isset($item['#default_value'])) {
-    //       $config->set($lang_key . '.' . $item['#default_value'], $form_state->getValue($lang_key . '_' . $key));
-    //     }
-    //   });
+    // $this->arrayWalkKeyRecursive($ui_settings_data,
+    // function ($item, $key) use ($config, $form_state, $lang_key) {
+    // if (isset($item['#default_value'])) {
+    // $config->set($lang_key . '.' . $item['#default_value'],
+    // $form_state->getValue($lang_key . '_' . $key));
     // }
-
+    // });
+    // }
     $config->save();
 
     parent::submitForm($form, $form_state);

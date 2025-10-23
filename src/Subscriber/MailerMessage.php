@@ -13,56 +13,56 @@ class MailerMessage {
   use StringTranslationTrait;
 
   /**
-   * Class attribute.
+   * The node id.
    *
    * @var string
    */
   private $nid;
 
   /**
-   * Class attribute.
+   * The email to be sent to.
    *
    * @var string
    */
   private $mailTo;
 
   /**
-   * Class attribute.
+   * The extras.
    *
    * @var string
    */
   private $extras;
 
   /**
-   * Class attribute.
+   * The config.
    *
    * @var \Drupal\Core\Config\ImmutableConfig
    */
   private $config;
 
   /**
-   * Class attribute.
+   * The mail key.
    *
    * @var string
    */
   public $mailKey;
 
   /**
-   * Class attribute.
+   * The mail title.
    *
    * @var string
    */
   public $mailTitle;
 
   /**
-   * Class attribute.
+   * The mail body.
    *
    * @var string
    */
   public $mailBody;
 
   /**
-   * Class attribute.
+   * The params.
    *
    * @var string
    */
@@ -91,7 +91,7 @@ class MailerMessage {
 
     $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
 
-    // @todo: get proper language.
+    // @todo get proper language.
     $language = 'en';
 
     $result = [];
@@ -312,7 +312,7 @@ class MailerMessage {
     $result = $this->config->get($config);
     // $result = $this->config->get($language . '.' . $config);
     // if (empty($result)) {
-    //   $result = $this->config->get($fallback . '.' . $config);
+    // $result = $this->config->get($fallback . '.' . $config);
     // }
     return $result;
   }

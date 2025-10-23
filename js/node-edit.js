@@ -12,7 +12,7 @@
                     $( '.form-item-send-node-subscribe-emails-message' ).show();
                 }
 
-                $( '[data-drupal-selector="edit-moderation-state-0-state"]' ).change(function() {
+                $( '[data-drupal-selector="edit-moderation-state-0-state"]' ).change(function () {
                     // alert( "Handler for .change() called." + $( this ).val() );
                     var value = $( this ).val()
                     if( value != 'published' ){

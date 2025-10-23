@@ -3,7 +3,6 @@
 namespace Drupal\node_subscribe\Subscriber;
 
 use Drupal\Driver\Exception\Exception;
-use Drupal\node_subscribe\Subscriber\Token;
 
 /**
  * File for subscriber.
@@ -52,35 +51,35 @@ class Subscriber {
 
 
   /**
-   * Class attribute.
+   * The token.
    *
    * @var string
    */
   private $token;
 
   /**
-   * Class attribute.
+   * The node id.
    *
    * @var string
    */
   private $nid;
 
   /**
-   * Class attribute.
+   * The subscriber id.
    *
    * @var string
    */
   private $smid;
 
   /**
-   * Class attribute.
+   * The database connection.
    *
    * @var \Drupal\Core\Database\Connection
    */
   private $connection;
 
   /**
-   * Class attribute.
+   * The config.
    *
    * @var \Drupal\Core\Config\ImmutableConfig
    */

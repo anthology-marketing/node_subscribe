@@ -79,4 +79,5 @@ class SendNotificationMessageWorker extends QueueWorkerBase implements Container
       $this->emailService->notifySubscriberOnNodeUpdate($data['email'], $data['nid'], $mailer_extras);
     }
   }
+
 }

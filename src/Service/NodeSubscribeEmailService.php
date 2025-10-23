@@ -69,7 +69,7 @@ class NodeSubscribeEmailService {
   private $configFactory;
 
   /**
-   * Mailing constructor.
+   * Class to define the service to manage the emails notifications.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   The entity type manager.
@@ -93,7 +93,7 @@ class NodeSubscribeEmailService {
     RequestStack $requestStack,
     AliasManagerInterface $aliasManager,
     LanguageManagerInterface $languageManager,
-    ConfigFactoryInterface $configFactory
+    ConfigFactoryInterface $configFactory,
   ) {
     $this->entityTypeManager = $entityTypeManager;
     $this->mailManager = $mailManager;
@@ -232,7 +232,7 @@ class NodeSubscribeEmailService {
     $language = $this->languageManager->getCurrentLanguage()->getId();
     $configObject = $this->configFactory->get('node_subscribe.settings');
 
-    // @todo: get proper language.
+    // @todo get proper language.
     $language = 'en';
 
     $result = [];
@@ -459,6 +459,9 @@ class NodeSubscribeEmailService {
     return $html;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   private function refineUrl(String $url) {
     $configObject = $this->configFactory->get('node_subscribe.settings');
     $website = $configObject->get('website');

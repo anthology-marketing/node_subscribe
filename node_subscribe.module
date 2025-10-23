@@ -7,8 +7,8 @@
  * @todo Create a setting if people want to get notified on every single save.
  */
 
-use Drupal\node\Entity\Node;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
 use Drupal\node_subscribe\Subscriber\Subscriber;
 
 /**
@@ -135,7 +135,7 @@ function node_subscribe_form_node_form_alter(&$form, FormStateInterface $form_st
  * {@inheritdoc}
  */
 function node_subscribe_form_submit($form, FormStateInterface $form_state) {
-  // @TODO: Change this as a event subscriber.
+  // @todo Change this as a event subscriber.
   $connection = \Drupal::database();
   $config = \Drupal::config('node_subscribe.settings');
   $nid = $form_state->getBuildInfo()['callback_object']->getEntity()->toArray()['nid'][0]['value'];

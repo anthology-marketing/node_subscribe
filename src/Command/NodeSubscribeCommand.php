@@ -10,8 +10,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * A drush command file.
- *
- * @package Drupal\node_subscribe\Command
  */
 class NodeSubscribeCommand extends DrushCommands {
 
@@ -36,7 +34,7 @@ class NodeSubscribeCommand extends DrushCommands {
    */
   public function __construct(
     AccountProxyInterface $currentUser,
-    NodeSubscribeEmailService $emailService
+    NodeSubscribeEmailService $emailService,
   ) {
     $this->currentUser = $currentUser;
     $this->emailService = $emailService;
@@ -73,7 +71,7 @@ class NodeSubscribeCommand extends DrushCommands {
     $nid = '1',
     $options = [
       'key' => '*',
-    ]
+    ],
   ) {
 
     $this->emailService->pageAdded($to, $nid);
@@ -100,7 +98,7 @@ class NodeSubscribeCommand extends DrushCommands {
     $nid = '1',
     $options = [
       'key' => '*',
-    ]
+    ],
   ) {
     $this->emailService->pageRemoved($to, $nid);
   }
@@ -126,7 +124,7 @@ class NodeSubscribeCommand extends DrushCommands {
     $nid = '1',
     $options = [
       'key' => '*',
-    ]
+    ],
   ) {
     $extras = [
       'new_secret' => '',
@@ -156,7 +154,7 @@ class NodeSubscribeCommand extends DrushCommands {
     $nid = '1',
     $options = [
       'key' => '*',
-    ]
+    ],
   ) {
     $extras = [
       'new_secret' => '',
@@ -186,7 +184,7 @@ class NodeSubscribeCommand extends DrushCommands {
     $nid = '1',
     $options = [
       'key' => '*',
-    ]
+    ],
   ) {
     $secret = '';
     $verification_link = 'https://newthology.lndo.site?subscriber=' . $secret;
@@ -217,7 +215,7 @@ class NodeSubscribeCommand extends DrushCommands {
     $nid = '1',
     $options = [
       'key' => '*',
-    ]
+    ],
   ) {
     $secret = '';
     $verification_link = 'https://newthology.lndo.site?subscriber=' . $secret;

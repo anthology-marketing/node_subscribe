@@ -8,56 +8,56 @@ namespace Drupal\node_subscribe\Subscriber;
 class Mailer {
 
   /**
-   * Class attribute.
+   * The mail manager service.
    *
    * @var \Drupal\Core\Mail\MailManager
    */
   private $mailManager;
 
   /**
-   * Class attribute.
+   * The module name.
    *
    * @var string
    */
   private $module;
 
   /**
-   * Class attribute.
+   * The mail key.
    *
    * @var string
    */
   private $key;
 
   /**
-   * Class attribute.
+   * The mail to.
    *
    * @var string
    */
   private $to;
 
   /**
-   * Class attribute.
+   * The mail params.
    *
    * @var array
    */
   private $params;
 
   /**
-   * Class attribute.
+   * The langcode.
    *
    * @var string
    */
   private $langcode;
 
   /**
-   * Class attribute.
+   * The send.
    *
    * @var bool
    */
   private $send;
 
   /**
-   * Mailer constructor.
+   * Class to help mail messages related to the node subscribe.
    *
    * @param string $message_name
    *   Message type name.

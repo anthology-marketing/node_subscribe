@@ -7,14 +7,14 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\node_subscribe\Service\NodeSubscribeEmailService;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Drupal\node_subscribe\Subscriber\Subscriber;
 use Drupal\node_subscribe\Subscriber\Token;
 use Drupal\path_alias\AliasManagerInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
@@ -23,49 +23,49 @@ use Symfony\Component\HttpFoundation\RequestStack;
 class NodeSubscribeController extends ControllerBase {
 
   /**
-   * Class attribute.
+   * The alias.
    *
    * @var string
    */
   private $alias;
 
   /**
-   * Class attribute.
+   * The token.
    *
    * @var string
    */
   private $token;
 
   /**
-   * Class attribute.
+   * The email.
    *
    * @var string
    */
   private $email;
 
   /**
-   * Class attribute.
+   * The path.
    *
    * @var string
    */
   private $path;
 
   /**
-   * Class attribute.
+   * The node id.
    *
    * @var string
    */
   private $nid;
 
   /**
-   * Class attribute.
+   * The captcha value.
    *
    * @var string
    */
   private $captchaValue;
 
   /**
-   * Class attribute.
+   * The config.
    *
    * @var \Drupal\Core\Config\ImmutableConfig
    */
@@ -128,7 +128,7 @@ class NodeSubscribeController extends ControllerBase {
   protected $languageManager;
 
   /**
-   * ModalFormContactController constructor.
+   * Constructs a NodeSubscribeController object.
    *
    * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
    *   The request stack.
@@ -152,7 +152,7 @@ class NodeSubscribeController extends ControllerBase {
     EntityTypeManagerInterface $entity_type_manager,
     ConfigFactoryInterface $config_factory,
     NodeSubscribeEmailService $mailService,
-    LanguageManagerInterface $languageManager
+    LanguageManagerInterface $languageManager,
   ) {
     $this->requestStack = $requestStack;
     $this->httpClient = $httpClient;

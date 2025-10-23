@@ -15,6 +15,34 @@ node_subscribe.analytics:
     _title: 'Node Subscribe Analytics'
   requirements:
     _permission: 'administer site configuration'
+
+# Export node_subscription table
+node_subscribe.export.subscriptions:
+  path: '/admin/export/node-subscribe/subscriptions'
+  defaults:
+    _controller: '\Drupal\node_subscribe\Controller\SubscriptionExportController::exportNodeSubscription'
+    _title: 'Export Node Subscription'
+  requirements:
+    _permission: 'administer site configuration'
+
+# Export node_subscription_manager table
+node_subscribe.export.subscribers:
+  path: '/admin/export/node-subscribe/subscribers'
+  defaults:
+    _controller: '\Drupal\node_subscribe\Controller\SubscriptionExportController::exportNodeSubscriptionSubscribers'
+    _title: 'Export Node Subscription Manager'
+  requirements:
+    _permission: 'administer site configuration'
+
+# Export node_subscription_tokens table
+node_subscribe.export.tokens:
+  path: '/admin/export/node-subscribe/tokens'
+  defaults:
+    _controller: '\Drupal\node_subscribe\Controller\SubscriptionExportController::exportNodeSubscriptionTokens'
+    _title: 'Export Node Subscription Tokens'
+  requirements:
+    _permission: 'administer site configuration'
+
 ##################################
 ##### Module Settings Route ######
 ##################################

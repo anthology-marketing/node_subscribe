@@ -4,6 +4,7 @@ namespace Drupal\node_subscribe\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 use Drupal\node_subscribe\Subscriber\Subscriptions;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -21,7 +22,7 @@ class NodeSubscribeAnalytics extends FormBase {
   protected $requestStack;
 
   /**
-   * ModalFormContactController constructor.
+   * Class to display snode subscribe analytics.
    *
    * @param \Symfony\Component\HttpFoundation\RequestStack $request_stack
    *   The request stack.
@@ -116,6 +117,25 @@ class NodeSubscribeAnalytics extends FormBase {
     $build['pager'] = [
       '#type' => 'pager',
     ];
+
+    $build['links'] = [
+      '#theme' => 'links',
+      '#links' => [
+        'link1' => [
+          'title' => $this->t('Download subscriptions (CSV)'),
+          'url' => Url::fromRoute('node_subscribe.export.subscriptions'),
+        ],
+        'link2' => [
+          'title' => $this->t('Download subscribers (CSV)'),
+          'url' => Url::fromRoute('node_subscribe.export.subscribers'),
+        ],
+        'link3' => [
+          'title' => $this->t('Donwload tokens (CSV)'),
+          'url' => Url::fromRoute('node_subscribe.export.tokens'),
+        ],
+      ],
+    ];
+
     return $build;
   }
 
